@@ -1,0 +1,45 @@
+---
+title: "Preface"
+number-sections: false
+---
+
+# Preface {.unnumbered}
+
+## What This Is {.unnumbered}
+
+The US Census Bureau sends email announcements when new data releases go out — surveys completed, tables published, headline figures highlighted. This series takes those announcements at face value and then checks them.
+
+The goal is not adversarial. The Bureau is a competent statistical agency and its headline figures are generally accurate. The goal is to understand *how* the numbers were produced: which survey, which variables, which population definition, which suppression rules, and what the API returns when you ask the same question the press release answered. That understanding is worth having on its own terms, and it surfaces questions worth pursuing as standalone projects.
+
+Each note follows the same structure: the claim, the source, the API pull, the comparison, and observations about what the data can and cannot do. Notes accumulate as the emails arrive.
+
+## The Census API {.unnumbered}
+
+The US Census Bureau exposes most of its data through a public REST API at `api.census.gov`. An API key is required but free. The key used in this analysis is stored in macOS Keychain and loaded into the shell environment; code accesses it via `os.getenv("CENSUS_API_KEY")`.
+
+The main endpoints used here are:
+
+| Endpoint | Dataset | Notes |
+|---|---|---|
+| `/data/acs/acs1` | American Community Survey 1-year | Annual, geography ≥ 65K pop |
+| `/data/acs/acs5` | American Community Survey 5-year | Annual, all geographies |
+| `/data/cps/school/oct` | Current Population Survey — School Enrollment | October supplement |
+| `/data/dec/dp` | Decennial Census Data Profiles | 2020 onward |
+
+Variable names, group codes, and geography parameters are documented at `api.census.gov/data/<year>/<dataset>/variables.json`. The API is not always intuitive. Part of what these notes capture is what you learn navigating it.
+
+## How to Add a New Note {.unnumbered}
+
+When a new Census email arrives worth checking:
+
+1. Add a new `.qmd` file: `NN-<topic>-<year>.qmd`
+2. Register it in `_quarto.yml` under `chapters:`
+3. Use the template structure from any existing note: claim → source → pull → compare → observations
+4. Run `pixi run render` and push
+
+The bibliography accumulates in `references.bib`. API utility functions accumulate in `appendix-a-code.qmd`.
+
+---
+
+*Troy Altus*
+*2026*

@@ -1,0 +1,226 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "US Census IV&V",
+    "section": "",
+    "text": "1 How to Read a Census Release",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>How to Read a Census Release</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#the-press-release-pipeline",
+    "href": "index.html#the-press-release-pipeline",
+    "title": "US Census IV&V",
+    "section": "1.1 The Press Release Pipeline",
+    "text": "1.1 The Press Release Pipeline\nThe Census Bureau publishes hundreds of data releases each year. The public-facing version is a press release with a headline, a few bullet points, and a link to detailed tables. The statistical version is a set of tables, microdata files, and an API endpoint that returns the underlying estimates.\nThe headline figure is always accurate in the sense that it correctly describes what the tables say. What the press release does not always make clear is which survey produced the number, what population was counted, what years are being compared, and what the margin of error is. Those details are in the technical documentation, and they matter.\nA release that says “college enrollment reached X million” might be using the October CPS supplement (household survey, smaller sample, asks about current enrollment) or the ACS (larger sample, asks about enrollment in the past 12 months). These are not the same question. The difference is rarely explained in the press release and is always explained in the methodology.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>How to Read a Census Release</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#the-three-main-surveys",
+    "href": "index.html#the-three-main-surveys",
+    "title": "US Census IV&V",
+    "section": "1.2 The Three Main Surveys",
+    "text": "1.2 The Three Main Surveys\nUnderstanding which survey produced a number is the first step in verifying it.\nAmerican Community Survey (ACS) Annual survey of approximately 3.5 million households. The gold standard for detailed demographic and economic characteristics. Published in one-year (geographies ≥ 65,000 population) and five-year (all geographies) editions. Variables include education, income, housing, employment, language, citizenship. API endpoint: /data/acs/acs1 and /data/acs/acs5.\nCurrent Population Survey (CPS) Monthly household survey conducted jointly by the Bureau of Labor Statistics and Census. The primary source for labor force statistics. Supplemental surveys run annually on specific topics: school enrollment (October), income and poverty (March), voting (November). Smaller sample than ACS; better for tracking month-to-month change. API endpoint: /data/cps/&lt;supplement&gt;/&lt;month&gt;.\nDecennial Census Full count (or near-full count) every ten years. Last conducted 2020. Used for apportionment, redistricting, and as a benchmark for survey weighting. API endpoint: /data/dec/.\nMost education enrollment figures in Census press releases come from the CPS October School Enrollment supplement.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>How to Read a Census Release</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#the-verification-workflow",
+    "href": "index.html#the-verification-workflow",
+    "title": "US Census IV&V",
+    "section": "1.3 The Verification Workflow",
+    "text": "1.3 The Verification Workflow\nEach note in this series follows the same sequence:\n1. CLAIM      — what the press release said, verbatim\n2. SOURCE     — which survey, which year, which variable group\n3. PULL       — API call that retrieves the relevant estimate\n4. COMPARE    — press release figure vs. API result\n5. OBSERVE    — what the data can do beyond the headline\nStep 4 should reproduce the headline figure exactly. If it does not, the discrepancy is documented and explained (usually it is a rounding convention or a population restriction that the press release does not spell out). The interesting work is step 5: what else does this data product contain, what geographies can be disaggregated, what time series goes back how far, and what follow-on questions are worth pursuing.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>How to Read a Census Release</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#the-census-api-in-practice",
+    "href": "index.html#the-census-api-in-practice",
+    "title": "US Census IV&V",
+    "section": "1.4 The Census API in Practice",
+    "text": "1.4 The Census API in Practice\n\n\nCode\nimport requests\nimport os\nimport pandas as pd\n\ndef census_get(dataset, year, variables, geography, api_key=None):\n    \"\"\"\n    Minimal Census API wrapper. Returns a DataFrame.\n\n    Parameters\n    ----------\n    dataset   : str   e.g. \"acs/acs1\", \"cps/school/oct\"\n    year      : int   e.g. 2024\n    variables : list  e.g. [\"NAME\", \"B15003_001E\"]\n    geography : str   e.g. \"us:1\", \"state:*\"\n    api_key   : str   defaults to CENSUS_API_KEY env var\n    \"\"\"\n    key = api_key or os.getenv(\"CENSUS_API_KEY\", \"\")\n    base = f\"https://api.census.gov/data/{year}/{dataset}\"\n    params = {\n        \"get\": \",\".join(variables),\n        \"for\": geography,\n        \"key\": key,\n    }\n    r = requests.get(base, params=params, timeout=30)\n    r.raise_for_status()\n    data = r.json()\n    return pd.DataFrame(data[1:], columns=data[0])\n\n\ndef list_variables(dataset, year):\n    \"\"\"\n    Print available variable groups for a dataset/year.\n    Useful for exploration.\n    \"\"\"\n    url = f\"https://api.census.gov/data/{year}/{dataset}/groups.json\"\n    r = requests.get(url, timeout=30)\n    r.raise_for_status()\n    groups = r.json().get(\"groups\", [])\n    df = pd.DataFrame(groups)[[\"name\", \"description\"]].sort_values(\"name\")\n    return df\n\n\n\n\n\n\n\n\nTipAPI Key Setup\n\n\n\nThe Census API key is stored in macOS Keychain and loaded by ~/.secrets/load_keys.sh at login. In Python: os.getenv(\"CENSUS_API_KEY\"). If running on a new machine, get a free key at api.census.gov/data/key_signup.html.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>How to Read a Census Release</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#summary",
+    "href": "index.html#summary",
+    "title": "US Census IV&V",
+    "section": "1.5 Summary",
+    "text": "1.5 Summary\nCensus press releases present accurate but compressed descriptions of survey results. Verifying them requires knowing which survey produced the number, locating the variable in the API, and pulling the estimate directly. The three main sources are the ACS, the CPS, and the Decennial Census; most education and labor statistics in press releases come from CPS supplements. Each note in this series walks through that verification workflow for one release, with observations on what the underlying data product can support beyond the headline.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>How to Read a Census Release</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#further-reading",
+    "href": "index.html#further-reading",
+    "title": "US Census IV&V",
+    "section": "1.6 Further Reading",
+    "text": "1.6 Further Reading\n\nCensus Bureau API documentation — complete list of available datasets and variables\nCensus Academy — free training on using Census data products\nCitro, C.F. & Michael, R.T. (eds.) Measuring Poverty: A New Approach. National Academies Press, 1995. Background on how survey-based poverty and enrollment estimates are constructed.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>How to Read a Census Release</span>"
+    ]
+  },
+  {
+    "objectID": "preface.html",
+    "href": "preface.html",
+    "title": "Preface",
+    "section": "",
+    "text": "Preface",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Preface</span>"
+    ]
+  },
+  {
+    "objectID": "preface.html#what-this-is",
+    "href": "preface.html#what-this-is",
+    "title": "Preface",
+    "section": "What This Is",
+    "text": "What This Is\nThe US Census Bureau sends email announcements when new data releases go out — surveys completed, tables published, headline figures highlighted. This series takes those announcements at face value and then checks them.\nThe goal is not adversarial. The Bureau is a competent statistical agency and its headline figures are generally accurate. The goal is to understand how the numbers were produced: which survey, which variables, which population definition, which suppression rules, and what the API returns when you ask the same question the press release answered. That understanding is worth having on its own terms, and it surfaces questions worth pursuing as standalone projects.\nEach note follows the same structure: the claim, the source, the API pull, the comparison, and observations about what the data can and cannot do. Notes accumulate as the emails arrive.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Preface</span>"
+    ]
+  },
+  {
+    "objectID": "preface.html#the-census-api",
+    "href": "preface.html#the-census-api",
+    "title": "Preface",
+    "section": "The Census API",
+    "text": "The Census API\nThe US Census Bureau exposes most of its data through a public REST API at api.census.gov. An API key is required but free. The key used in this analysis is stored in macOS Keychain and loaded into the shell environment; code accesses it via os.getenv(\"CENSUS_API_KEY\").\nThe main endpoints used here are:\n\n\n\n\n\n\n\n\nEndpoint\nDataset\nNotes\n\n\n\n\n/data/acs/acs1\nAmerican Community Survey 1-year\nAnnual, geography ≥ 65K pop\n\n\n/data/acs/acs5\nAmerican Community Survey 5-year\nAnnual, all geographies\n\n\n/data/cps/school/oct\nCurrent Population Survey — School Enrollment\nOctober supplement\n\n\n/data/dec/dp\nDecennial Census Data Profiles\n2020 onward\n\n\n\nVariable names, group codes, and geography parameters are documented at api.census.gov/data/&lt;year&gt;/&lt;dataset&gt;/variables.json. The API is not always intuitive. Part of what these notes capture is what you learn navigating it.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Preface</span>"
+    ]
+  },
+  {
+    "objectID": "preface.html#how-to-add-a-new-note",
+    "href": "preface.html#how-to-add-a-new-note",
+    "title": "Preface",
+    "section": "How to Add a New Note",
+    "text": "How to Add a New Note\nWhen a new Census email arrives worth checking:\n\nAdd a new .qmd file: NN-&lt;topic&gt;-&lt;year&gt;.qmd\nRegister it in _quarto.yml under chapters:\nUse the template structure from any existing note: claim → source → pull → compare → observations\nRun pixi run render and push\n\nThe bibliography accumulates in references.bib. API utility functions accumulate in appendix-a-code.qmd.\n\nTroy Altus 2026",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Preface</span>"
+    ]
+  },
+  {
+    "objectID": "02-education-enrollment-2024.html",
+    "href": "02-education-enrollment-2024.html",
+    "title": "3  Education Enrollment, 2024",
+    "section": "",
+    "text": "4 Education Enrollment, 2024",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Education Enrollment, 2024</span>"
+    ]
+  },
+  {
+    "objectID": "02-education-enrollment-2024.html#the-claim",
+    "href": "02-education-enrollment-2024.html#the-claim",
+    "title": "3  Education Enrollment, 2024",
+    "section": "4.1 The Claim",
+    "text": "4.1 The Claim\n\n[Paste the exact headline text from the Census Bureau email here.]\n\nSource: Census Bureau press release / email announcement, [date]\nThe figures typically reported in school enrollment releases include: - Total enrolled population (all ages) - Nursery school / preschool enrollment - K–12 enrollment - College enrollment (2-year and 4-year) - Year-over-year change\nThe key question for each figure: which population definition, which reference period, and which variable group in the CPS October supplement produced it?",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Education Enrollment, 2024</span>"
+    ]
+  },
+  {
+    "objectID": "02-education-enrollment-2024.html#the-source",
+    "href": "02-education-enrollment-2024.html#the-source",
+    "title": "3  Education Enrollment, 2024",
+    "section": "4.2 The Source",
+    "text": "4.2 The Source\nThe October CPS School Enrollment supplement asks respondents whether they are currently enrolled in school. The reference period is the week containing the survey date (October). This differs from the ACS education enrollment question, which asks about enrollment at any time in the past 12 months — a broader definition that produces higher enrollment counts.\nSurvey: Current Population Survey — School Enrollment (October) Year: 2024 API dataset: cps/school/oct Key variables: HEFAMINC, PESCHFT, PEEDUCA, PESCHLVL\nThe CPS Public Use Microdata (PUMD) is the most granular option. The API provides tabulated estimates. Both should reproduce the headline.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Education Enrollment, 2024</span>"
+    ]
+  },
+  {
+    "objectID": "02-education-enrollment-2024.html#the-api-pull",
+    "href": "02-education-enrollment-2024.html#the-api-pull",
+    "title": "3  Education Enrollment, 2024",
+    "section": "4.3 The API Pull",
+    "text": "4.3 The API Pull\n\n\n\n\n\n\nCautionTODO — Fill In After Pull\n\n\n\nRun the cells below after the 2024 CPS October supplement is available via the API (typically released ~6 months after the reference month). Check availability at api.census.gov/data/&lt;year&gt;/cps/school/oct/variables.json.\n\n\n\n\nCensus API — CPS October School Enrollment 2024\nimport os\nimport requests\nimport pandas as pd\n\nAPI_KEY = os.getenv(\"CENSUS_API_KEY\", \"\")\nYEAR = 2024\nDATASET = \"cps/school/oct\"\n\n# Check available variables for this dataset/year\nvar_url = f\"https://api.census.gov/data/{YEAR}/{DATASET}/variables.json\"\nr = requests.get(var_url, timeout=30)\n\nif r.status_code == 200:\n    variables = r.json()[\"variables\"]\n    # Filter to school enrollment variables\n    enroll_vars = {k: v for k, v in variables.items()\n                   if \"ENROLL\" in k.upper() or \"SCHOOL\" in k.upper()\n                   or \"PESC\" in k.upper()}\n    for k, v in sorted(enroll_vars.items()):\n        print(f\"{k:25s}  {v.get('label', '')}\")\nelse:\n    print(f\"Dataset not yet available for {YEAR}: HTTP {r.status_code}\")\n\n\n\n\nPull national enrollment totals\n# National enrollment by school level\n# PESCHLVL: school level (nursery, K-12, college)\n# PESCHFT: full-time vs part-time college enrollment\n\nparams = {\n    \"get\": \"PESCHLVL,PWSSWGT\",   # school level + person weight\n    \"for\": \"us:1\",\n    \"key\": API_KEY,\n}\n\nbase = f\"https://api.census.gov/data/{YEAR}/{DATASET}\"\nr = requests.get(base, params=params, timeout=30)\nr.raise_for_status()\ndata = r.json()\ndf = pd.DataFrame(data[1:], columns=data[0])\n\n# Convert to numeric\ndf[\"PESCHLVL\"] = pd.to_numeric(df[\"PESCHLVL\"])\ndf[\"PWSSWGT\"] = pd.to_numeric(df[\"PWSSWGT\"])\n\n# School level codes (check variables.json for exact mapping)\nlevel_map = {\n    1: \"Nursery/preschool\",\n    2: \"K–12\",\n    3: \"College/university\",\n    -1: \"Not enrolled / not applicable\",\n}\n\ndf[\"level\"] = df[\"PESCHLVL\"].map(level_map)\n\ntotals = (df[df[\"PESCHLVL\"] &gt; 0]\n          .groupby(\"level\")[\"PWSSWGT\"]\n          .sum()\n          .div(1000)   # to thousands\n          .reset_index()\n          .rename(columns={\"PWSSWGT\": \"enrolled_thousands\"}))\n\nprint(totals.to_string(index=False))",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Education Enrollment, 2024</span>"
+    ]
+  },
+  {
+    "objectID": "02-education-enrollment-2024.html#comparison",
+    "href": "02-education-enrollment-2024.html#comparison",
+    "title": "3  Education Enrollment, 2024",
+    "section": "4.4 Comparison",
+    "text": "4.4 Comparison\n\n\n\nFigure\nPress Release\nAPI Result\nDifference\n\n\n\n\nTotal enrolled\n—\n—\n—\n\n\nK–12\n—\n—\n—\n\n\nCollege\n—\n—\n—\n\n\n\nFill in after running the pull above.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Education Enrollment, 2024</span>"
+    ]
+  },
+  {
+    "objectID": "02-education-enrollment-2024.html#observations",
+    "href": "02-education-enrollment-2024.html#observations",
+    "title": "3  Education Enrollment, 2024",
+    "section": "4.5 Observations",
+    "text": "4.5 Observations\nThings to note while pulling this data — potential seeds for future projects:\n1. ACS vs. CPS enrollment gap The ACS B14001 group reports school enrollment for the past 12 months; the CPS October supplement reports current enrollment. The ACS count is consistently higher. Quantifying this gap by level and geography is a clean methodological note.\n2. Geographic disaggregation The CPS is designed for national and state-level estimates. For county or tract-level enrollment, the ACS 5-year is the right product. Mapping K–12 enrollment rates at the county level from ACS 5-year data (B14003) is a natural visualization project.\n3. Enrollment trends The CPS October supplement goes back to 1947. A time-series of college enrollment rates by age group and sex is available with no additional data acquisition beyond API calls.\n4. College enrollment by institution type The CPS asks whether enrolled at 2-year or 4-year institution (PESCHLVL values distinguish these). Tracking the 2-year vs. 4-year split over time, especially post-2020, may be worth a dedicated note.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Education Enrollment, 2024</span>"
+    ]
+  },
+  {
+    "objectID": "02-education-enrollment-2024.html#summary",
+    "href": "02-education-enrollment-2024.html#summary",
+    "title": "3  Education Enrollment, 2024",
+    "section": "4.6 Summary",
+    "text": "4.6 Summary\n[Fill in after completing the pull and comparison.]\nThe Census Bureau’s 2024 education enrollment figures come from the CPS October School Enrollment supplement. The API reproduces the headline [figure / with the following discrepancy]. The dataset supports geographic disaggregation to the state level and time-series analysis back to [year]. Observations on API structure and potential follow-on analyses are logged above.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Education Enrollment, 2024</span>"
+    ]
+  },
+  {
+    "objectID": "appendix-a-code.html",
+    "href": "appendix-a-code.html",
+    "title": "Appendix A — Census API Utilities",
+    "section": "",
+    "text": "Census API Utilities\nReusable functions for pulling and processing Census Bureau data. All functions use eval: false — import from this appendix or copy into a note’s code cells.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Census API Utilities</span>"
+    ]
+  },
+  {
+    "objectID": "appendix-a-code.html#core-api-wrapper",
+    "href": "appendix-a-code.html#core-api-wrapper",
+    "title": "Appendix A — Census API Utilities",
+    "section": "Core API Wrapper",
+    "text": "Core API Wrapper\n\n\nCode\nimport os\nimport requests\nimport pandas as pd\n\n\ndef census_get(dataset, year, variables, geography, api_key=None):\n    \"\"\"\n    Pull a Census API table. Returns a DataFrame.\n\n    Parameters\n    ----------\n    dataset   : str   e.g. \"acs/acs1\", \"cps/school/oct\", \"dec/dp\"\n    year      : int   e.g. 2024\n    variables : list  e.g. [\"NAME\", \"B15003_001E\"]\n    geography : str   e.g. \"us:1\", \"state:*\", \"county:*&in=state:45\"\n    api_key   : str   defaults to CENSUS_API_KEY env var\n\n    Returns\n    -------\n    pd.DataFrame with numeric columns coerced where possible\n\n    Examples\n    --------\n    # National college enrollment from ACS 1-year\n    df = census_get(\"acs/acs1\", 2023, [\"NAME\", \"B14001_008E\"], \"us:1\")\n\n    # State-level K-12 enrollment\n    df = census_get(\"acs/acs5\", 2023,\n                    [\"NAME\", \"B14001_003E\", \"B14001_004E\"],\n                    \"state:*\")\n    \"\"\"\n    key = api_key or os.getenv(\"CENSUS_API_KEY\", \"\")\n    base = f\"https://api.census.gov/data/{year}/{dataset}\"\n    params = {\"get\": \",\".join(variables), \"for\": geography, \"key\": key}\n    r = requests.get(base, params=params, timeout=30)\n    r.raise_for_status()\n    data = r.json()\n    df = pd.DataFrame(data[1:], columns=data[0])\n    # Coerce numeric columns\n    for col in df.columns:\n        if col not in (\"NAME\", \"state\", \"county\", \"us\"):\n            df[col] = pd.to_numeric(df[col], errors=\"ignore\")\n    return df\n\n\ndef census_variables(dataset, year, filter_str=None):\n    \"\"\"\n    List available variables for a dataset/year.\n\n    Parameters\n    ----------\n    dataset    : str   e.g. \"acs/acs1\"\n    year       : int\n    filter_str : str   optional substring filter on variable name or label\n\n    Returns\n    -------\n    pd.DataFrame with columns: name, label, concept, predicateType\n    \"\"\"\n    url = f\"https://api.census.gov/data/{year}/{dataset}/variables.json\"\n    r = requests.get(url, timeout=30)\n    r.raise_for_status()\n    raw = r.json()[\"variables\"]\n    rows = [{\"name\": k, **{f: v.get(f, \"\") for f in\n             [\"label\", \"concept\", \"predicateType\"]}}\n            for k, v in raw.items()]\n    df = pd.DataFrame(rows).sort_values(\"name\").reset_index(drop=True)\n    if filter_str:\n        mask = (df[\"name\"].str.contains(filter_str, case=False) |\n                df[\"label\"].str.contains(filter_str, case=False) |\n                df[\"concept\"].str.contains(filter_str, case=False))\n        df = df[mask].reset_index(drop=True)\n    return df\n\n\ndef census_groups(dataset, year):\n    \"\"\"\n    List available variable groups (table prefixes) for a dataset/year.\n    \"\"\"\n    url = f\"https://api.census.gov/data/{year}/{dataset}/groups.json\"\n    r = requests.get(url, timeout=30)\n    r.raise_for_status()\n    groups = r.json().get(\"groups\", [])\n    return pd.DataFrame(groups)[[\"name\", \"description\"]].sort_values(\"name\")",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Census API Utilities</span>"
+    ]
+  },
+  {
+    "objectID": "appendix-a-code.html#acs-education-variables-reference",
+    "href": "appendix-a-code.html#acs-education-variables-reference",
+    "title": "Appendix A — Census API Utilities",
+    "section": "ACS Education Variables (Reference)",
+    "text": "ACS Education Variables (Reference)\n\n\nCode\n# Commonly used ACS education enrollment groups\nACS_EDUCATION = {\n    # School enrollment by level (universe: population 3+ years)\n    \"B14001\": \"School enrollment by level of school\",\n    # B14001_001E  Total\n    # B14001_002E  Enrolled in school\n    # B14001_003E    Enrolled in nursery school, preschool\n    # B14001_004E    Enrolled in kindergarten\n    # B14001_005E    Enrolled in grade 1 to grade 4\n    # B14001_006E    Enrolled in grade 5 to grade 8\n    # B14001_007E    Enrolled in grade 9 to grade 12\n    # B14001_008E    Enrolled in college, undergraduate years\n    # B14001_009E    Graduate or professional school\n\n    # Educational attainment (population 25+)\n    \"B15003\": \"Educational attainment for population 25+\",\n    # B15003_001E  Total\n    # B15003_017E  Regular high school diploma\n    # B15003_022E  Bachelor's degree\n    # B15003_023E  Master's degree\n    # B15003_025E  Doctorate degree\n\n    # School enrollment by age and sex (more granular)\n    \"B14003\": \"Sex by school enrollment by type of school by age\",\n}\n\n# CPS October supplement — school enrollment variables\nCPS_SCHOOL = {\n    \"PESCHLVL\": \"School level (1=nursery, 2=K-12, 3=college)\",\n    \"PESCHFT\":  \"Full-time/part-time college enrollment\",\n    \"PEEDUCA\":  \"Highest level of education completed\",\n    \"HEFAMINC\": \"Family income (recode)\",\n    \"PWSSWGT\":  \"Final person weight (use for population estimates)\",\n    \"PRTAGE\":   \"Age\",\n    \"PESEX\":    \"Sex (1=male, 2=female)\",\n    \"PTDTRACE\": \"Race (detailed)\",\n    \"PEHSPNON\": \"Hispanic origin\",\n}",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Census API Utilities</span>"
+    ]
+  },
+  {
+    "objectID": "appendix-a-code.html#weighted-estimate-helper",
+    "href": "appendix-a-code.html#weighted-estimate-helper",
+    "title": "Appendix A — Census API Utilities",
+    "section": "Weighted Estimate Helper",
+    "text": "Weighted Estimate Helper\n\n\nCode\ndef weighted_total(df, value_col, weight_col, group_col=None):\n    \"\"\"\n    Compute weighted population total from CPS microdata.\n\n    Parameters\n    ----------\n    df         : pd.DataFrame  CPS microdata\n    value_col  : str           column to filter on (e.g. \"PESCHLVL\")\n    weight_col : str           person weight column (e.g. \"PWSSWGT\")\n    group_col  : str           optional groupby column\n\n    Returns\n    -------\n    pd.Series or float: weighted total(s) in persons (divide by 1000 for thousands)\n    \"\"\"\n    if group_col:\n        return df.groupby(group_col)[weight_col].sum()\n    return df[weight_col].sum()",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Census API Utilities</span>"
+    ]
+  }
+]

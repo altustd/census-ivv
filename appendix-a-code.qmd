@@ -1,0 +1,169 @@
+---
+title: "Census API Utilities"
+number-sections: true
+---
+
+# Census API Utilities {.unnumbered}
+
+Reusable functions for pulling and processing Census Bureau data. All functions use `eval: false` — import from this appendix or copy into a note's code cells.
+
+## Core API Wrapper {.unnumbered}
+
+```{python}
+#| eval: false
+
+import os
+import requests
+import pandas as pd
+
+
+def census_get(dataset, year, variables, geography, api_key=None):
+    """
+    Pull a Census API table. Returns a DataFrame.
+
+    Parameters
+    ----------
+    dataset   : str   e.g. "acs/acs1", "cps/school/oct", "dec/dp"
+    year      : int   e.g. 2024
+    variables : list  e.g. ["NAME", "B15003_001E"]
+    geography : str   e.g. "us:1", "state:*", "county:*&in=state:45"
+    api_key   : str   defaults to CENSUS_API_KEY env var
+
+    Returns
+    -------
+    pd.DataFrame with numeric columns coerced where possible
+
+    Examples
+    --------
+    # National college enrollment from ACS 1-year
+    df = census_get("acs/acs1", 2023, ["NAME", "B14001_008E"], "us:1")
+
+    # State-level K-12 enrollment
+    df = census_get("acs/acs5", 2023,
+                    ["NAME", "B14001_003E", "B14001_004E"],
+                    "state:*")
+    """
+    key = api_key or os.getenv("CENSUS_API_KEY", "")
+    base = f"https://api.census.gov/data/{year}/{dataset}"
+    params = {"get": ",".join(variables), "for": geography, "key": key}
+    r = requests.get(base, params=params, timeout=30)
+    r.raise_for_status()
+    data = r.json()
+    df = pd.DataFrame(data[1:], columns=data[0])
+    # Coerce numeric columns
+    for col in df.columns:
+        if col not in ("NAME", "state", "county", "us"):
+            df[col] = pd.to_numeric(df[col], errors="ignore")
+    return df
+
+
+def census_variables(dataset, year, filter_str=None):
+    """
+    List available variables for a dataset/year.
+
+    Parameters
+    ----------
+    dataset    : str   e.g. "acs/acs1"
+    year       : int
+    filter_str : str   optional substring filter on variable name or label
+
+    Returns
+    -------
+    pd.DataFrame with columns: name, label, concept, predicateType
+    """
+    url = f"https://api.census.gov/data/{year}/{dataset}/variables.json"
+    r = requests.get(url, timeout=30)
+    r.raise_for_status()
+    raw = r.json()["variables"]
+    rows = [{"name": k, **{f: v.get(f, "") for f in
+             ["label", "concept", "predicateType"]}}
+            for k, v in raw.items()]
+    df = pd.DataFrame(rows).sort_values("name").reset_index(drop=True)
+    if filter_str:
+        mask = (df["name"].str.contains(filter_str, case=False) |
+                df["label"].str.contains(filter_str, case=False) |
+                df["concept"].str.contains(filter_str, case=False))
+        df = df[mask].reset_index(drop=True)
+    return df
+
+
+def census_groups(dataset, year):
+    """
+    List available variable groups (table prefixes) for a dataset/year.
+    """
+    url = f"https://api.census.gov/data/{year}/{dataset}/groups.json"
+    r = requests.get(url, timeout=30)
+    r.raise_for_status()
+    groups = r.json().get("groups", [])
+    return pd.DataFrame(groups)[["name", "description"]].sort_values("name")
+```
+
+## ACS Education Variables (Reference) {.unnumbered}
+
+```{python}
+#| eval: false
+
+# Commonly used ACS education enrollment groups
+ACS_EDUCATION = {
+    # School enrollment by level (universe: population 3+ years)
+    "B14001": "School enrollment by level of school",
+    # B14001_001E  Total
+    # B14001_002E  Enrolled in school
+    # B14001_003E    Enrolled in nursery school, preschool
+    # B14001_004E    Enrolled in kindergarten
+    # B14001_005E    Enrolled in grade 1 to grade 4
+    # B14001_006E    Enrolled in grade 5 to grade 8
+    # B14001_007E    Enrolled in grade 9 to grade 12
+    # B14001_008E    Enrolled in college, undergraduate years
+    # B14001_009E    Graduate or professional school
+
+    # Educational attainment (population 25+)
+    "B15003": "Educational attainment for population 25+",
+    # B15003_001E  Total
+    # B15003_017E  Regular high school diploma
+    # B15003_022E  Bachelor's degree
+    # B15003_023E  Master's degree
+    # B15003_025E  Doctorate degree
+
+    # School enrollment by age and sex (more granular)
+    "B14003": "Sex by school enrollment by type of school by age",
+}
+
+# CPS October supplement — school enrollment variables
+CPS_SCHOOL = {
+    "PESCHLVL": "School level (1=nursery, 2=K-12, 3=college)",
+    "PESCHFT":  "Full-time/part-time college enrollment",
+    "PEEDUCA":  "Highest level of education completed",
+    "HEFAMINC": "Family income (recode)",
+    "PWSSWGT":  "Final person weight (use for population estimates)",
+    "PRTAGE":   "Age",
+    "PESEX":    "Sex (1=male, 2=female)",
+    "PTDTRACE": "Race (detailed)",
+    "PEHSPNON": "Hispanic origin",
+}
+```
+
+## Weighted Estimate Helper {.unnumbered}
+
+```{python}
+#| eval: false
+
+def weighted_total(df, value_col, weight_col, group_col=None):
+    """
+    Compute weighted population total from CPS microdata.
+
+    Parameters
+    ----------
+    df         : pd.DataFrame  CPS microdata
+    value_col  : str           column to filter on (e.g. "PESCHLVL")
+    weight_col : str           person weight column (e.g. "PWSSWGT")
+    group_col  : str           optional groupby column
+
+    Returns
+    -------
+    pd.Series or float: weighted total(s) in persons (divide by 1000 for thousands)
+    """
+    if group_col:
+        return df.groupby(group_col)[weight_col].sum()
+    return df[weight_col].sum()
+```

@@ -1,0 +1,14 @@
+.env
+*.pkl
+*.joblib
+.quarto/
+docs/.quarto/
+__pycache__/
+*.pyc
+*.fdb_latexmk
+.netlify/
+data/raw/
+data/processed/
+
+/.quarto/
+**/*.quarto_ipynb

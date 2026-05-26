@@ -1,0 +1,153 @@
+---
+title: "Education Enrollment, 2024"
+number-sections: true
+---
+
+# Education Enrollment, 2024
+
+::: {.callout-note icon=false}
+## This Note
+**Release:** US Census Bureau email announcement, May 2026
+**Survey:** Current Population Survey — October School Enrollment Supplement, 2024
+**Claim:** [paste headline figure from the email here]
+**Verdict:** [fill in after pulling data]
+:::
+
+## The Claim
+
+> [Paste the exact headline text from the Census Bureau email here.]
+
+*Source: Census Bureau press release / email announcement, [date]*
+
+The figures typically reported in school enrollment releases include:
+- Total enrolled population (all ages)
+- Nursery school / preschool enrollment
+- K–12 enrollment
+- College enrollment (2-year and 4-year)
+- Year-over-year change
+
+The key question for each figure: which population definition, which reference period, and which variable group in the CPS October supplement produced it?
+
+## The Source
+
+The October CPS School Enrollment supplement asks respondents whether they are currently enrolled in school. The reference period is the week containing the survey date (October). This differs from the ACS education enrollment question, which asks about enrollment at any time in the past 12 months — a broader definition that produces higher enrollment counts.
+
+**Survey:** Current Population Survey — School Enrollment (October)
+**Year:** 2024
+**API dataset:** `cps/school/oct`
+**Key variables:** `HEFAMINC`, `PESCHFT`, `PEEDUCA`, `PESCHLVL`
+
+The CPS Public Use Microdata (PUMD) is the most granular option. The API provides tabulated estimates. Both should reproduce the headline.
+
+## The API Pull
+
+::: {.callout-caution}
+## TODO — Fill In After Pull
+Run the cells below after the 2024 CPS October supplement is available via the API (typically released ~6 months after the reference month). Check availability at `api.census.gov/data/<year>/cps/school/oct/variables.json`.
+:::
+
+```{python}
+#| eval: false
+#| label: pull-enrollment
+#| code-summary: "Census API — CPS October School Enrollment 2024"
+
+import os
+import requests
+import pandas as pd
+
+API_KEY = os.getenv("CENSUS_API_KEY", "")
+YEAR = 2024
+DATASET = "cps/school/oct"
+
+# Check available variables for this dataset/year
+var_url = f"https://api.census.gov/data/{YEAR}/{DATASET}/variables.json"
+r = requests.get(var_url, timeout=30)
+
+if r.status_code == 200:
+    variables = r.json()["variables"]
+    # Filter to school enrollment variables
+    enroll_vars = {k: v for k, v in variables.items()
+                   if "ENROLL" in k.upper() or "SCHOOL" in k.upper()
+                   or "PESC" in k.upper()}
+    for k, v in sorted(enroll_vars.items()):
+        print(f"{k:25s}  {v.get('label', '')}")
+else:
+    print(f"Dataset not yet available for {YEAR}: HTTP {r.status_code}")
+```
+
+```{python}
+#| eval: false
+#| label: pull-national-totals
+#| code-summary: "Pull national enrollment totals"
+
+# National enrollment by school level
+# PESCHLVL: school level (nursery, K-12, college)
+# PESCHFT: full-time vs part-time college enrollment
+
+params = {
+    "get": "PESCHLVL,PWSSWGT",   # school level + person weight
+    "for": "us:1",
+    "key": API_KEY,
+}
+
+base = f"https://api.census.gov/data/{YEAR}/{DATASET}"
+r = requests.get(base, params=params, timeout=30)
+r.raise_for_status()
+data = r.json()
+df = pd.DataFrame(data[1:], columns=data[0])
+
+# Convert to numeric
+df["PESCHLVL"] = pd.to_numeric(df["PESCHLVL"])
+df["PWSSWGT"] = pd.to_numeric(df["PWSSWGT"])
+
+# School level codes (check variables.json for exact mapping)
+level_map = {
+    1: "Nursery/preschool",
+    2: "K–12",
+    3: "College/university",
+    -1: "Not enrolled / not applicable",
+}
+
+df["level"] = df["PESCHLVL"].map(level_map)
+
+totals = (df[df["PESCHLVL"] > 0]
+          .groupby("level")["PWSSWGT"]
+          .sum()
+          .div(1000)   # to thousands
+          .reset_index()
+          .rename(columns={"PWSSWGT": "enrolled_thousands"}))
+
+print(totals.to_string(index=False))
+```
+
+## Comparison
+
+| Figure | Press Release | API Result | Difference |
+|--------|--------------|------------|------------|
+| Total enrolled | — | — | — |
+| K–12 | — | — | — |
+| College | — | — | — |
+
+*Fill in after running the pull above.*
+
+## Observations
+
+Things to note while pulling this data — potential seeds for future projects:
+
+**1. ACS vs. CPS enrollment gap**
+The ACS `B14001` group reports school enrollment for the past 12 months; the CPS October supplement reports current enrollment. The ACS count is consistently higher. Quantifying this gap by level and geography is a clean methodological note.
+
+**2. Geographic disaggregation**
+The CPS is designed for national and state-level estimates. For county or tract-level enrollment, the ACS 5-year is the right product. Mapping K–12 enrollment rates at the county level from ACS 5-year data (`B14003`) is a natural visualization project.
+
+**3. Enrollment trends**
+The CPS October supplement goes back to 1947. A time-series of college enrollment rates by age group and sex is available with no additional data acquisition beyond API calls.
+
+**4. College enrollment by institution type**
+The CPS asks whether enrolled at 2-year or 4-year institution (`PESCHLVL` values distinguish these). Tracking the 2-year vs. 4-year split over time, especially post-2020, may be worth a dedicated note.
+
+## Summary
+
+*[Fill in after completing the pull and comparison.]*
+
+The Census Bureau's 2024 education enrollment figures come from the CPS October School Enrollment supplement. The API reproduces the headline [figure / with the following discrepancy]. The dataset supports geographic disaggregation to the state level and time-series analysis back to [year]. Observations on API structure and potential follow-on analyses are logged above.

@@ -1,0 +1,110 @@
+---
+title: "How to Read a Census Release"
+number-sections: true
+---
+
+# How to Read a Census Release
+
+::: {.callout-note icon=false}
+## Learning Objectives
+- Understand how Census Bureau press releases are structured and what they typically claim
+- Know the difference between ACS, CPS, and Decennial Census data products
+- Understand the Census API well enough to pull a table and compare it to a headline figure
+:::
+
+## The Press Release Pipeline
+
+The Census Bureau publishes hundreds of data releases each year. The public-facing version is a press release with a headline, a few bullet points, and a link to detailed tables. The statistical version is a set of tables, microdata files, and an API endpoint that returns the underlying estimates.
+
+The headline figure is always accurate in the sense that it correctly describes what the tables say. What the press release does not always make clear is which survey produced the number, what population was counted, what years are being compared, and what the margin of error is. Those details are in the technical documentation, and they matter.
+
+A release that says "college enrollment reached X million" might be using the October CPS supplement (household survey, smaller sample, asks about current enrollment) or the ACS (larger sample, asks about enrollment in the past 12 months). These are not the same question. The difference is rarely explained in the press release and is always explained in the methodology.
+
+## The Three Main Surveys
+
+Understanding which survey produced a number is the first step in verifying it.
+
+**American Community Survey (ACS)**
+Annual survey of approximately 3.5 million households. The gold standard for detailed demographic and economic characteristics. Published in one-year (geographies ≥ 65,000 population) and five-year (all geographies) editions. Variables include education, income, housing, employment, language, citizenship. API endpoint: `/data/acs/acs1` and `/data/acs/acs5`.
+
+**Current Population Survey (CPS)**
+Monthly household survey conducted jointly by the Bureau of Labor Statistics and Census. The primary source for labor force statistics. Supplemental surveys run annually on specific topics: school enrollment (October), income and poverty (March), voting (November). Smaller sample than ACS; better for tracking month-to-month change. API endpoint: `/data/cps/<supplement>/<month>`.
+
+**Decennial Census**
+Full count (or near-full count) every ten years. Last conducted 2020. Used for apportionment, redistricting, and as a benchmark for survey weighting. API endpoint: `/data/dec/`.
+
+Most education enrollment figures in Census press releases come from the CPS October School Enrollment supplement.
+
+## The Verification Workflow
+
+Each note in this series follows the same sequence:
+
+```
+1. CLAIM      — what the press release said, verbatim
+2. SOURCE     — which survey, which year, which variable group
+3. PULL       — API call that retrieves the relevant estimate
+4. COMPARE    — press release figure vs. API result
+5. OBSERVE    — what the data can do beyond the headline
+```
+
+Step 4 should reproduce the headline figure exactly. If it does not, the discrepancy is documented and explained (usually it is a rounding convention or a population restriction that the press release does not spell out). The interesting work is step 5: what else does this data product contain, what geographies can be disaggregated, what time series goes back how far, and what follow-on questions are worth pursuing.
+
+## The Census API in Practice
+
+```{python}
+import requests
+import os
+import pandas as pd
+
+def census_get(dataset, year, variables, geography, api_key=None):
+    """
+    Minimal Census API wrapper. Returns a DataFrame.
+
+    Parameters
+    ----------
+    dataset   : str   e.g. "acs/acs1", "cps/school/oct"
+    year      : int   e.g. 2024
+    variables : list  e.g. ["NAME", "B15003_001E"]
+    geography : str   e.g. "us:1", "state:*"
+    api_key   : str   defaults to CENSUS_API_KEY env var
+    """
+    key = api_key or os.getenv("CENSUS_API_KEY", "")
+    base = f"https://api.census.gov/data/{year}/{dataset}"
+    params = {
+        "get": ",".join(variables),
+        "for": geography,
+        "key": key,
+    }
+    r = requests.get(base, params=params, timeout=30)
+    r.raise_for_status()
+    data = r.json()
+    return pd.DataFrame(data[1:], columns=data[0])
+
+
+def list_variables(dataset, year):
+    """
+    Print available variable groups for a dataset/year.
+    Useful for exploration.
+    """
+    url = f"https://api.census.gov/data/{year}/{dataset}/groups.json"
+    r = requests.get(url, timeout=30)
+    r.raise_for_status()
+    groups = r.json().get("groups", [])
+    df = pd.DataFrame(groups)[["name", "description"]].sort_values("name")
+    return df
+```
+
+::: {.callout-tip}
+## API Key Setup
+The Census API key is stored in macOS Keychain and loaded by `~/.secrets/load_keys.sh` at login. In Python: `os.getenv("CENSUS_API_KEY")`. If running on a new machine, get a free key at [api.census.gov/data/key_signup.html](https://api.census.gov/data/key_signup.html).
+:::
+
+## Summary
+
+Census press releases present accurate but compressed descriptions of survey results. Verifying them requires knowing which survey produced the number, locating the variable in the API, and pulling the estimate directly. The three main sources are the ACS, the CPS, and the Decennial Census; most education and labor statistics in press releases come from CPS supplements. Each note in this series walks through that verification workflow for one release, with observations on what the underlying data product can support beyond the headline.
+
+## Further Reading
+
+- [Census Bureau API documentation](https://www.census.gov/data/developers/data-sets.html) — complete list of available datasets and variables
+- [Census Academy](https://www.census.gov/data/academy.html) — free training on using Census data products
+- Citro, C.F. & Michael, R.T. (eds.) *Measuring Poverty: A New Approach*. National Academies Press, 1995. Background on how survey-based poverty and enrollment estimates are constructed.
