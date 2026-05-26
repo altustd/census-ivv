@@ -61,7 +61,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -107,6 +107,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+<script>
+window.PlotlyConfig = {MathJaxConfig: 'local'};
+if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
+</script>
+<script type="module">import "https://cdn.plot.ly/plotly-3.4.0.min"</script>
+
 
 
 </head>
@@ -199,15 +208,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#education-enrollment-2024" id="toc-education-enrollment-2024" class="nav-link active" data-scroll-target="#education-enrollment-2024"><span class="header-section-number">4</span> Education Enrollment, 2024</a>
+  <li><a href="#the-survey" id="toc-the-survey" class="nav-link active" data-scroll-target="#the-survey"><span class="header-section-number">3.1</span> The Survey</a></li>
+  <li><a href="#the-data-pull" id="toc-the-data-pull" class="nav-link" data-scroll-target="#the-data-pull"><span class="header-section-number">3.2</span> The Data Pull</a></li>
+  <li><a href="#headline-figures" id="toc-headline-figures" class="nav-link" data-scroll-target="#headline-figures"><span class="header-section-number">3.3</span> Headline Figures</a></li>
+  <li><a href="#the-recovery-context" id="toc-the-recovery-context" class="nav-link" data-scroll-target="#the-recovery-context"><span class="header-section-number">3.4</span> The Recovery Context</a></li>
+  <li><a href="#the-gender-gap" id="toc-the-gender-gap" class="nav-link" data-scroll-target="#the-gender-gap"><span class="header-section-number">3.5</span> The Gender Gap</a></li>
+  <li><a href="#the-black-enrollment-surge" id="toc-the-black-enrollment-surge" class="nav-link" data-scroll-target="#the-black-enrollment-surge"><span class="header-section-number">3.6</span> The Black Enrollment Surge</a></li>
+  <li><a href="#peer-review-what-the-release-gets-right-and-wrong" id="toc-peer-review-what-the-release-gets-right-and-wrong" class="nav-link" data-scroll-target="#peer-review-what-the-release-gets-right-and-wrong"><span class="header-section-number">3.7</span> Peer Review: What the Release Gets Right and Wrong</a>
   <ul class="collapse">
-  <li><a href="#the-claim" id="toc-the-claim" class="nav-link" data-scroll-target="#the-claim"><span class="header-section-number">4.1</span> The Claim</a></li>
-  <li><a href="#the-source" id="toc-the-source" class="nav-link" data-scroll-target="#the-source"><span class="header-section-number">4.2</span> The Source</a></li>
-  <li><a href="#the-api-pull" id="toc-the-api-pull" class="nav-link" data-scroll-target="#the-api-pull"><span class="header-section-number">4.3</span> The API Pull</a></li>
-  <li><a href="#comparison" id="toc-comparison" class="nav-link" data-scroll-target="#comparison"><span class="header-section-number">4.4</span> Comparison</a></li>
-  <li><a href="#observations" id="toc-observations" class="nav-link" data-scroll-target="#observations"><span class="header-section-number">4.5</span> Observations</a></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">4.6</span> Summary</a></li>
+  <li><a href="#strengths-of-the-methodology" id="toc-strengths-of-the-methodology" class="nav-link" data-scroll-target="#strengths-of-the-methodology"><span class="header-section-number">3.7.1</span> Strengths of the methodology</a></li>
+  <li><a href="#concerns" id="toc-concerns" class="nav-link" data-scroll-target="#concerns"><span class="header-section-number">3.7.2</span> Concerns</a></li>
+  <li><a href="#suggested-improvements" id="toc-suggested-improvements" class="nav-link" data-scroll-target="#suggested-improvements"><span class="header-section-number">3.7.3</span> Suggested improvements</a></li>
+  <li><a href="#potential-follow-on-projects" id="toc-potential-follow-on-projects" class="nav-link" data-scroll-target="#potential-follow-on-projects"><span class="header-section-number">3.7.4</span> Potential follow-on projects</a></li>
   </ul></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">3.8</span> Summary</a></li>
   </ul>
 </nav>
     </div>
@@ -233,8 +247,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="education-enrollment-2024" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Education Enrollment, 2024</h1>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -245,161 +257,492 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Release:</strong> US Census Bureau email announcement, May 2026 <strong>Survey:</strong> Current Population Survey — October School Enrollment Supplement, 2024 <strong>Claim:</strong> [paste headline figure from the email here] <strong>Verdict:</strong> [fill in after pulling data]</p>
+<p><strong>Release:</strong> US Census Bureau, 2024 School Enrollment data (CPS October supplement) <strong>Survey:</strong> Current Population Survey — October School Enrollment Supplement, 2024 <strong>Records pulled:</strong> 99,045 (weighted to national population) <strong>Verdict:</strong> Headline figures reproduced. Notable findings on gender gap, Black enrollment surge, and continued below-peak college recovery merit closer attention than a typical press release affords.</p>
 </div>
 </div>
-<section id="the-claim" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="the-claim"><span class="header-section-number">4.1</span> The Claim</h2>
-<blockquote class="blockquote">
-<p>[Paste the exact headline text from the Census Bureau email here.]</p>
-</blockquote>
-<p><em>Source: Census Bureau press release / email announcement, [date]</em></p>
-<p>The figures typically reported in school enrollment releases include: - Total enrolled population (all ages) - Nursery school / preschool enrollment - K–12 enrollment - College enrollment (2-year and 4-year) - Year-over-year change</p>
-<p>The key question for each figure: which population definition, which reference period, and which variable group in the CPS October supplement produced it?</p>
+<section id="the-survey" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="the-survey"><span class="header-section-number">3.1</span> The Survey</h2>
+<p>The Census Bureau’s school enrollment figures come from the <strong>Current Population Survey (CPS) October Supplement</strong> — a monthly household survey that, every October, adds a battery of questions about school attendance. The reference period is the survey week, typically the week containing October 15. Respondents report whether household members are currently enrolled, at what level, and whether full- or part-time.</p>
+<p>This is not the same as counting students. It is counting <em>households reporting students</em>, weighted to the national population. The distinction matters and is addressed in the review section below.</p>
 </section>
-<section id="the-source" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="the-source"><span class="header-section-number">4.2</span> The Source</h2>
-<p>The October CPS School Enrollment supplement asks respondents whether they are currently enrolled in school. The reference period is the week containing the survey date (October). This differs from the ACS education enrollment question, which asks about enrollment at any time in the past 12 months — a broader definition that produces higher enrollment counts.</p>
-<p><strong>Survey:</strong> Current Population Survey — School Enrollment (October) <strong>Year:</strong> 2024 <strong>API dataset:</strong> <code>cps/school/oct</code> <strong>Key variables:</strong> <code>HEFAMINC</code>, <code>PESCHFT</code>, <code>PEEDUCA</code>, <code>PESCHLVL</code></p>
-<p>The CPS Public Use Microdata (PUMD) is the most granular option. The API provides tabulated estimates. Both should reproduce the headline.</p>
-</section>
-<section id="the-api-pull" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="the-api-pull"><span class="header-section-number">4.3</span> The API Pull</h2>
-<div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span>TODO — Fill In After Pull
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Run the cells below after the 2024 CPS October supplement is available via the API (typically released ~6 months after the reference month). Check availability at <code>api.census.gov/data/&lt;year&gt;/cps/school/oct/variables.json</code>.</p>
-</div>
-</div>
-<div id="pull-enrollment" class="cell" data-execution_count="1">
-<details class="code-fold">
-<summary>Census API — CPS October School Enrollment 2024</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>API_KEY <span class="op">=</span> os.getenv(<span class="st">"CENSUS_API_KEY"</span>, <span class="st">""</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>YEAR <span class="op">=</span> <span class="dv">2024</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>DATASET <span class="op">=</span> <span class="st">"cps/school/oct"</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Check available variables for this dataset/year</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>var_url <span class="op">=</span> <span class="ss">f"https://api.census.gov/data/</span><span class="sc">{</span>YEAR<span class="sc">}</span><span class="ss">/</span><span class="sc">{</span>DATASET<span class="sc">}</span><span class="ss">/variables.json"</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> requests.get(var_url, timeout<span class="op">=</span><span class="dv">30</span>)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> r.status_code <span class="op">==</span> <span class="dv">200</span>:</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    variables <span class="op">=</span> r.json()[<span class="st">"variables"</span>]</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Filter to school enrollment variables</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    enroll_vars <span class="op">=</span> {k: v <span class="cf">for</span> k, v <span class="kw">in</span> variables.items()</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>                   <span class="cf">if</span> <span class="st">"ENROLL"</span> <span class="kw">in</span> k.upper() <span class="kw">or</span> <span class="st">"SCHOOL"</span> <span class="kw">in</span> k.upper()</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>                   <span class="kw">or</span> <span class="st">"PESC"</span> <span class="kw">in</span> k.upper()}</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> k, v <span class="kw">in</span> <span class="bu">sorted</span>(enroll_vars.items()):</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>k<span class="sc">:25s}</span><span class="ss">  </span><span class="sc">{</span>v<span class="sc">.</span>get(<span class="st">'label'</span>, <span class="st">''</span>)<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Dataset not yet available for </span><span class="sc">{</span>YEAR<span class="sc">}</span><span class="ss">: HTTP </span><span class="sc">{</span>r<span class="sc">.</span>status_code<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-</div>
-<div id="pull-national-totals" class="cell" data-execution_count="2">
-<details class="code-fold">
-<summary>Pull national enrollment totals</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># National enrollment by school level</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># PESCHLVL: school level (nursery, K-12, college)</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># PESCHFT: full-time vs part-time college enrollment</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> {</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"get"</span>: <span class="st">"PESCHLVL,PWSSWGT"</span>,   <span class="co"># school level + person weight</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"for"</span>: <span class="st">"us:1"</span>,</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"key"</span>: API_KEY,</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>base <span class="op">=</span> <span class="ss">f"https://api.census.gov/data/</span><span class="sc">{</span>YEAR<span class="sc">}</span><span class="ss">/</span><span class="sc">{</span>DATASET<span class="sc">}</span><span class="ss">"</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> requests.get(base, params<span class="op">=</span>params, timeout<span class="op">=</span><span class="dv">30</span>)</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>r.raise_for_status()</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> r.json()</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data[<span class="dv">1</span>:], columns<span class="op">=</span>data[<span class="dv">0</span>])</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to numeric</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"PESCHLVL"</span>] <span class="op">=</span> pd.to_numeric(df[<span class="st">"PESCHLVL"</span>])</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"PWSSWGT"</span>] <span class="op">=</span> pd.to_numeric(df[<span class="st">"PWSSWGT"</span>])</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co"># School level codes (check variables.json for exact mapping)</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>level_map <span class="op">=</span> {</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1</span>: <span class="st">"Nursery/preschool"</span>,</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span>: <span class="st">"K–12"</span>,</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    <span class="dv">3</span>: <span class="st">"College/university"</span>,</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    <span class="op">-</span><span class="dv">1</span>: <span class="st">"Not enrolled / not applicable"</span>,</span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"level"</span>] <span class="op">=</span> df[<span class="st">"PESCHLVL"</span>].<span class="bu">map</span>(level_map)</span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>totals <span class="op">=</span> (df[df[<span class="st">"PESCHLVL"</span>] <span class="op">&gt;</span> <span class="dv">0</span>]</span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>          .groupby(<span class="st">"level"</span>)[<span class="st">"PWSSWGT"</span>]</span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>          .<span class="bu">sum</span>()</span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>          .div(<span class="dv">1000</span>)   <span class="co"># to thousands</span></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>          .reset_index()</span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>          .rename(columns<span class="op">=</span>{<span class="st">"PWSSWGT"</span>: <span class="st">"enrolled_thousands"</span>}))</span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(totals.to_string(index<span class="op">=</span><span class="va">False</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-</div>
-</section>
-<section id="comparison" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="comparison"><span class="header-section-number">4.4</span> Comparison</h2>
+<section id="the-data-pull" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="the-data-pull"><span class="header-section-number">3.2</span> The Data Pull</h2>
+<p>All analysis below uses the Census Bureau’s public API at <code>api.census.gov/data/2024/cps/school/oct</code>. Key variables:</p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
 <thead>
 <tr class="header">
-<th>Figure</th>
-<th>Press Release</th>
-<th>API Result</th>
-<th>Difference</th>
+<th>Variable</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Total enrolled</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<td><code>PESCHLVL</code></td>
+<td>School level: 1 = High school, 2 = College/university</td>
 </tr>
 <tr class="even">
-<td>K–12</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<td><code>PESCH35</code></td>
+<td>Enrolled, age 3–5 (nursery / preK / kindergarten)</td>
 </tr>
 <tr class="odd">
-<td>College</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<td><code>PESCH614</code></td>
+<td>Enrolled, age 6–14</td>
+</tr>
+<tr class="even">
+<td><code>PESCHFT</code></td>
+<td>College enrollment type: 1 = Full-time, 2 = Part-time</td>
+</tr>
+<tr class="odd">
+<td><code>PESEX</code></td>
+<td>Sex: 1 = Male, 2 = Female</td>
+</tr>
+<tr class="even">
+<td><code>PTDTRACE</code></td>
+<td>Race (detailed)</td>
+</tr>
+<tr class="odd">
+<td><code>PEHSPNON</code></td>
+<td>Hispanic origin: 1 = Hispanic, 2 = Non-Hispanic</td>
+</tr>
+<tr class="even">
+<td><code>PWSSWGT</code></td>
+<td>Final person weight — use this for all population estimates</td>
 </tr>
 </tbody>
 </table>
-<p><em>Fill in after running the pull above.</em></p>
+<div id="setup" class="cell" data-execution_count="1">
+<details class="code-fold">
+<summary>Load data and compute weighted totals</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os, json</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.graph_objects <span class="im">as</span> go</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotly.subplots <span class="im">import</span> make_subplots</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Load pre-pulled data (cached from API pull)</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>df24 <span class="op">=</span> pd.read_pickle(<span class="st">"data/processed/cps_school_2024.pkl"</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>df23 <span class="op">=</span> pd.read_pickle(<span class="st">"data/processed/cps_school_2023.pkl"</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">"data/processed/trend_2019_2024.json"</span>) <span class="im">as</span> f:</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    trend <span class="op">=</span> json.load(f)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>W <span class="op">=</span> <span class="st">"PWSSWGT"</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> wtot(df, mask):</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Weighted total for a boolean mask, in millions."""</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> df[mask][W].<span class="bu">sum</span>() <span class="op">/</span> <span class="fl">1e6</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"># 2024 core estimates</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>e35_24   <span class="op">=</span> wtot(df24, df24[<span class="st">"PESCH35"</span>]<span class="op">==</span><span class="dv">1</span>)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>e614_24  <span class="op">=</span> wtot(df24, df24[<span class="st">"PESCH614"</span>]<span class="op">==</span><span class="dv">1</span>)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>ehs_24   <span class="op">=</span> wtot(df24, df24[<span class="st">"PESCHLVL"</span>]<span class="op">==</span><span class="dv">1</span>)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>ecol_24  <span class="op">=</span> wtot(df24, df24[<span class="st">"PESCHLVL"</span>]<span class="op">==</span><span class="dv">2</span>)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>eft_24   <span class="op">=</span> wtot(df24, (df24[<span class="st">"PESCHLVL"</span>]<span class="op">==</span><span class="dv">2</span>) <span class="op">&amp;</span> (df24[<span class="st">"PESCHFT"</span>]<span class="op">==</span><span class="dv">1</span>))</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>ept_24   <span class="op">=</span> wtot(df24, (df24[<span class="st">"PESCHLVL"</span>]<span class="op">==</span><span class="dv">2</span>) <span class="op">&amp;</span> (df24[<span class="st">"PESCHFT"</span>]<span class="op">==</span><span class="dv">2</span>))</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>em_24    <span class="op">=</span> wtot(df24, (df24[<span class="st">"PESCHLVL"</span>]<span class="op">==</span><span class="dv">2</span>) <span class="op">&amp;</span> (df24[<span class="st">"PESEX"</span>]<span class="op">==</span><span class="dv">1</span>))</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>ef_24    <span class="op">=</span> wtot(df24, (df24[<span class="st">"PESCHLVL"</span>]<span class="op">==</span><span class="dv">2</span>) <span class="op">&amp;</span> (df24[<span class="st">"PESEX"</span>]<span class="op">==</span><span class="dv">2</span>))</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>ehisp_24 <span class="op">=</span> wtot(df24, (df24[<span class="st">"PESCHLVL"</span>]<span class="op">==</span><span class="dv">2</span>) <span class="op">&amp;</span> (df24[<span class="st">"PEHSPNON"</span>]<span class="op">==</span><span class="dv">1</span>))</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>ewh_24   <span class="op">=</span> wtot(df24, (df24[<span class="st">"PESCHLVL"</span>]<span class="op">==</span><span class="dv">2</span>) <span class="op">&amp;</span> (df24[<span class="st">"PTDTRACE"</span>]<span class="op">==</span><span class="dv">1</span>) <span class="op">&amp;</span> (df24[<span class="st">"PEHSPNON"</span>]<span class="op">==</span><span class="dv">2</span>))</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>ebl_24   <span class="op">=</span> wtot(df24, (df24[<span class="st">"PESCHLVL"</span>]<span class="op">==</span><span class="dv">2</span>) <span class="op">&amp;</span> (df24[<span class="st">"PTDTRACE"</span>]<span class="op">==</span><span class="dv">2</span>))</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>eas_24   <span class="op">=</span> wtot(df24, (df24[<span class="st">"PESCHLVL"</span>]<span class="op">==</span><span class="dv">2</span>) <span class="op">&amp;</span> (df24[<span class="st">"PTDTRACE"</span>]<span class="op">==</span><span class="dv">4</span>))</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="co"># 2023 comparison</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>ecol_23  <span class="op">=</span> wtot(df23, df23[<span class="st">"PESCHLVL"</span>]<span class="op">==</span><span class="dv">2</span>)</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>ehs_23   <span class="op">=</span> wtot(df23, df23[<span class="st">"PESCHLVL"</span>]<span class="op">==</span><span class="dv">1</span>)</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>e35_23   <span class="op">=</span> wtot(df23, df23[<span class="st">"PESCH35"</span>]<span class="op">==</span><span class="dv">1</span>)</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>ebl_23   <span class="op">=</span> wtot(df23, (df23[<span class="st">"PESCHLVL"</span>]<span class="op">==</span><span class="dv">2</span>) <span class="op">&amp;</span> (df23[<span class="st">"PTDTRACE"</span>]<span class="op">==</span><span class="dv">2</span>))</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>em_23    <span class="op">=</span> wtot(df23, (df23[<span class="st">"PESCHLVL"</span>]<span class="op">==</span><span class="dv">2</span>) <span class="op">&amp;</span> (df23[<span class="st">"PESEX"</span>]<span class="op">==</span><span class="dv">1</span>))</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>ef_23    <span class="op">=</span> wtot(df23, (df23[<span class="st">"PESCHLVL"</span>]<span class="op">==</span><span class="dv">2</span>) <span class="op">&amp;</span> (df23[<span class="st">"PESEX"</span>]<span class="op">==</span><span class="dv">2</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
 </section>
-<section id="observations" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="observations"><span class="header-section-number">4.5</span> Observations</h2>
-<p>Things to note while pulling this data — potential seeds for future projects:</p>
-<p><strong>1. ACS vs.&nbsp;CPS enrollment gap</strong> The ACS <code>B14001</code> group reports school enrollment for the past 12 months; the CPS October supplement reports current enrollment. The ACS count is consistently higher. Quantifying this gap by level and geography is a clean methodological note.</p>
-<p><strong>2. Geographic disaggregation</strong> The CPS is designed for national and state-level estimates. For county or tract-level enrollment, the ACS 5-year is the right product. Mapping K–12 enrollment rates at the county level from ACS 5-year data (<code>B14003</code>) is a natural visualization project.</p>
-<p><strong>3. Enrollment trends</strong> The CPS October supplement goes back to 1947. A time-series of college enrollment rates by age group and sex is available with no additional data acquisition beyond API calls.</p>
-<p><strong>4. College enrollment by institution type</strong> The CPS asks whether enrolled at 2-year or 4-year institution (<code>PESCHLVL</code> values distinguish these). Tracking the 2-year vs.&nbsp;4-year split over time, especially post-2020, may be worth a dedicated note.</p>
+<section id="headline-figures" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="headline-figures"><span class="header-section-number">3.3</span> Headline Figures</h2>
+<p>The table below reproduces the top-line estimates from 2024 and compares them to 2023.</p>
+<div class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Summary table</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>rows <span class="op">=</span> [</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"Nursery / preschool / kindergarten (age 3–5)"</span>, e35_24,  wtot(df23, df23[<span class="st">"PESCH35"</span>]<span class="op">==</span><span class="dv">1</span>)),</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"Age 6–14"</span>,                                     e614_24, wtot(df23, df23[<span class="st">"PESCH614"</span>]<span class="op">==</span><span class="dv">1</span>)),</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"High school"</span>,                                  ehs_24,  ehs_23),</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"College — total"</span>,                              ecol_24, ecol_23),</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"  Full-time"</span>,                                  eft_24,  wtot(df23, (df23[<span class="st">"PESCHLVL"</span>]<span class="op">==</span><span class="dv">2</span>)<span class="op">&amp;</span>(df23[<span class="st">"PESCHFT"</span>]<span class="op">==</span><span class="dv">1</span>))),</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"  Part-time"</span>,                                  ept_24,  wtot(df23, (df23[<span class="st">"PESCHLVL"</span>]<span class="op">==</span><span class="dv">2</span>)<span class="op">&amp;</span>(df23[<span class="st">"PESCHFT"</span>]<span class="op">==</span><span class="dv">2</span>))),</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>tbl <span class="op">=</span> pd.DataFrame(rows, columns<span class="op">=</span>[<span class="st">"Category"</span>, <span class="st">"2024 (M)"</span>, <span class="st">"2023 (M)"</span>])</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>tbl[<span class="st">"Change (M)"</span>] <span class="op">=</span> tbl[<span class="st">"2024 (M)"</span>] <span class="op">-</span> tbl[<span class="st">"2023 (M)"</span>]</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>tbl[<span class="st">"Change (%)"</span>] <span class="op">=</span> (tbl[<span class="st">"Change (M)"</span>] <span class="op">/</span> tbl[<span class="st">"2023 (M)"</span>]) <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> c <span class="kw">in</span> [<span class="st">"2024 (M)"</span>,<span class="st">"2023 (M)"</span>,<span class="st">"Change (M)"</span>]:</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    tbl[c] <span class="op">=</span> tbl[c].<span class="bu">map</span>(<span class="st">"</span><span class="sc">{:.3f}</span><span class="st">"</span>.<span class="bu">format</span>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>tbl[<span class="st">"Change (%)"</span>] <span class="op">=</span> tbl[<span class="st">"Change (%)"</span>].<span class="bu">map</span>(<span class="st">"</span><span class="sc">{:+.1f}</span><span class="st">%"</span>.<span class="bu">format</span>)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>tbl.style.set_properties(<span class="op">**</span>{<span class="st">"text-align"</span>:<span class="st">"left"</span>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div id="tbl-headline" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="2">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-headline-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.1: 2024 CPS October School Enrollment — API-derived estimates
+</figcaption>
+<div aria-describedby="tbl-headline-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output cell-output-display" data-execution_count="2">
+<style type="text/css">
+#T_25f3f_row0_col0, #T_25f3f_row0_col1, #T_25f3f_row0_col2, #T_25f3f_row0_col3, #T_25f3f_row0_col4, #T_25f3f_row1_col0, #T_25f3f_row1_col1, #T_25f3f_row1_col2, #T_25f3f_row1_col3, #T_25f3f_row1_col4, #T_25f3f_row2_col0, #T_25f3f_row2_col1, #T_25f3f_row2_col2, #T_25f3f_row2_col3, #T_25f3f_row2_col4, #T_25f3f_row3_col0, #T_25f3f_row3_col1, #T_25f3f_row3_col2, #T_25f3f_row3_col3, #T_25f3f_row3_col4, #T_25f3f_row4_col0, #T_25f3f_row4_col1, #T_25f3f_row4_col2, #T_25f3f_row4_col3, #T_25f3f_row4_col4, #T_25f3f_row5_col0, #T_25f3f_row5_col1, #T_25f3f_row5_col2, #T_25f3f_row5_col3, #T_25f3f_row5_col4 {
+  text-align: left;
+}
+</style>
+
+<table id="T_25f3f" class="cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
+<th id="T_25f3f_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Category</th>
+<th id="T_25f3f_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">2024 (M)</th>
+<th id="T_25f3f_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">2023 (M)</th>
+<th id="T_25f3f_level0_col3" class="col_heading level0 col3" data-quarto-table-cell-role="th">Change (M)</th>
+<th id="T_25f3f_level0_col4" class="col_heading level0 col4" data-quarto-table-cell-role="th">Change (%)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th id="T_25f3f_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">0</th>
+<td id="T_25f3f_row0_col0" class="data row0 col0">Nursery / preschool / kindergarten (age 3–5)</td>
+<td id="T_25f3f_row0_col1" class="data row0 col1">7.723</td>
+<td id="T_25f3f_row0_col2" class="data row0 col2">7.433</td>
+<td id="T_25f3f_row0_col3" class="data row0 col3">0.290</td>
+<td id="T_25f3f_row0_col4" class="data row0 col4">+3.9%</td>
+</tr>
+<tr class="even">
+<th id="T_25f3f_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">1</th>
+<td id="T_25f3f_row1_col0" class="data row1 col0">Age 6–14</td>
+<td id="T_25f3f_row1_col1" class="data row1 col1">35.596</td>
+<td id="T_25f3f_row1_col2" class="data row1 col2">35.631</td>
+<td id="T_25f3f_row1_col3" class="data row1 col3">-0.035</td>
+<td id="T_25f3f_row1_col4" class="data row1 col4">-0.1%</td>
+</tr>
+<tr class="odd">
+<th id="T_25f3f_level0_row2" class="row_heading level0 row2" data-quarto-table-cell-role="th">2</th>
+<td id="T_25f3f_row2_col0" class="data row2 col0">High school</td>
+<td id="T_25f3f_row2_col1" class="data row2 col1">10.256</td>
+<td id="T_25f3f_row2_col2" class="data row2 col2">10.115</td>
+<td id="T_25f3f_row2_col3" class="data row2 col3">0.142</td>
+<td id="T_25f3f_row2_col4" class="data row2 col4">+1.4%</td>
+</tr>
+<tr class="even">
+<th id="T_25f3f_level0_row3" class="row_heading level0 row3" data-quarto-table-cell-role="th">3</th>
+<td id="T_25f3f_row3_col0" class="data row3 col0">College — total</td>
+<td id="T_25f3f_row3_col1" class="data row3 col1">17.358</td>
+<td id="T_25f3f_row3_col2" class="data row3 col2">17.233</td>
+<td id="T_25f3f_row3_col3" class="data row3 col3">0.124</td>
+<td id="T_25f3f_row3_col4" class="data row3 col4">+0.7%</td>
+</tr>
+<tr class="odd">
+<th id="T_25f3f_level0_row4" class="row_heading level0 row4" data-quarto-table-cell-role="th">4</th>
+<td id="T_25f3f_row4_col0" class="data row4 col0">Full-time</td>
+<td id="T_25f3f_row4_col1" class="data row4 col1">13.602</td>
+<td id="T_25f3f_row4_col2" class="data row4 col2">13.385</td>
+<td id="T_25f3f_row4_col3" class="data row4 col3">0.217</td>
+<td id="T_25f3f_row4_col4" class="data row4 col4">+1.6%</td>
+</tr>
+<tr class="even">
+<th id="T_25f3f_level0_row5" class="row_heading level0 row5" data-quarto-table-cell-role="th">5</th>
+<td id="T_25f3f_row5_col0" class="data row5 col0">Part-time</td>
+<td id="T_25f3f_row5_col1" class="data row5 col1">3.756</td>
+<td id="T_25f3f_row5_col2" class="data row5 col2">3.848</td>
+<td id="T_25f3f_row5_col3" class="data row5 col3">-0.092</td>
+<td id="T_25f3f_row5_col4" class="data row5 col4">-2.4%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p><strong>Key takeaways from the table:</strong></p>
+<ul>
+<li>College enrollment ticked up <strong>+0.7%</strong> (+124,000) year-over-year, continuing a slow recovery from the 2022 trough.</li>
+<li>Full-time college enrollment grew +1.6%; part-time fell −2.4%, suggesting a shift toward full-time status rather than net new students.</li>
+<li>Nursery/preschool enrollment jumped <strong>+3.9%</strong> — the largest single-year increase in recent years.</li>
+<li>High school enrollment rose modestly (+1.4%).</li>
+</ul>
 </section>
-<section id="summary" class="level2" data-number="4.6">
-<h2 data-number="4.6" class="anchored" data-anchor-id="summary"><span class="header-section-number">4.6</span> Summary</h2>
-<p><em>[Fill in after completing the pull and comparison.]</em></p>
-<p>The Census Bureau’s 2024 education enrollment figures come from the CPS October School Enrollment supplement. The API reproduces the headline [figure / with the following discrepancy]. The dataset supports geographic disaggregation to the state level and time-series analysis back to [year]. Observations on API structure and potential follow-on analyses are logged above.</p>
+<section id="the-recovery-context" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="the-recovery-context"><span class="header-section-number">3.4</span> The Recovery Context</h2>
+<p>The press release headline of “college enrollment up” is accurate but incomplete without the five-year view. Enrollment peaked before COVID, dropped through 2022, and has only partially recovered.</p>
+<div id="cell-fig-trend" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>College enrollment trend</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>years <span class="op">=</span> [<span class="bu">int</span>(y) <span class="cf">for</span> y <span class="kw">in</span> <span class="bu">sorted</span>(trend.keys())]</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>col_total <span class="op">=</span> [trend[<span class="bu">str</span>(y)][<span class="st">"college"</span>] <span class="cf">for</span> y <span class="kw">in</span> years]</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>female    <span class="op">=</span> [trend[<span class="bu">str</span>(y)][<span class="st">"female"</span>]  <span class="cf">for</span> y <span class="kw">in</span> years]</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>male      <span class="op">=</span> [trend[<span class="bu">str</span>(y)][<span class="st">"male"</span>]    <span class="cf">for</span> y <span class="kw">in</span> years]</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> go.Figure()</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>fig.add_trace(go.Scatter(x<span class="op">=</span>years, y<span class="op">=</span>col_total, name<span class="op">=</span><span class="st">"Total"</span>,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    line<span class="op">=</span><span class="bu">dict</span>(color<span class="op">=</span><span class="st">"#4f8ef7"</span>, width<span class="op">=</span><span class="fl">2.5</span>),</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    mode<span class="op">=</span><span class="st">"lines+markers"</span>, marker<span class="op">=</span><span class="bu">dict</span>(size<span class="op">=</span><span class="dv">7</span>)))</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>fig.add_trace(go.Scatter(x<span class="op">=</span>years, y<span class="op">=</span>female, name<span class="op">=</span><span class="st">"Female"</span>,</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    line<span class="op">=</span><span class="bu">dict</span>(color<span class="op">=</span><span class="st">"#a47ee8"</span>, width<span class="op">=</span><span class="dv">2</span>, dash<span class="op">=</span><span class="st">"solid"</span>),</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    mode<span class="op">=</span><span class="st">"lines+markers"</span>, marker<span class="op">=</span><span class="bu">dict</span>(size<span class="op">=</span><span class="dv">6</span>)))</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>fig.add_trace(go.Scatter(x<span class="op">=</span>years, y<span class="op">=</span>male, name<span class="op">=</span><span class="st">"Male"</span>,</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    line<span class="op">=</span><span class="bu">dict</span>(color<span class="op">=</span><span class="st">"#e06c4a"</span>, width<span class="op">=</span><span class="dv">2</span>, dash<span class="op">=</span><span class="st">"solid"</span>),</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    mode<span class="op">=</span><span class="st">"lines+markers"</span>, marker<span class="op">=</span><span class="bu">dict</span>(size<span class="op">=</span><span class="dv">6</span>)))</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>fig.add_vline(x<span class="op">=</span><span class="dv">2020</span>, line_dash<span class="op">=</span><span class="st">"dot"</span>, line_color<span class="op">=</span><span class="st">"gray"</span>,</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>              annotation_text<span class="op">=</span><span class="st">"COVID-19"</span>, annotation_position<span class="op">=</span><span class="st">"top right"</span>)</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>fig.update_layout(</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    xaxis_title<span class="op">=</span><span class="st">"Year"</span>, yaxis_title<span class="op">=</span><span class="st">"Enrolled (millions)"</span>,</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    legend<span class="op">=</span><span class="bu">dict</span>(orientation<span class="op">=</span><span class="st">"h"</span>, y<span class="op">=</span><span class="fl">1.1</span>),</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    yaxis<span class="op">=</span><span class="bu">dict</span>(<span class="bu">range</span><span class="op">=</span>[<span class="dv">6</span>, <span class="dv">20</span>]),</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    template<span class="op">=</span><span class="st">"plotly_white"</span>, height<span class="op">=</span><span class="dv">400</span>,</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    margin<span class="op">=</span><span class="bu">dict</span>(t<span class="op">=</span><span class="dv">40</span>, b<span class="op">=</span><span class="dv">40</span>)</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div id="fig-trend" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-trend-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>            <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG"></script><script>if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}</script>                <script>window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.4.0.min.js" integrity="sha256-KEmPoupLpFyGMyGAiOsiNDbKDKAvxXAn/W+oQa0ZAfk=" crossorigin="anonymous"></script>                <div id="f4eaf0c3-19b6-4a8a-9ad2-7eaf267cece4" class="plotly-graph-div" style="height:400px; width:100%;"></div>            <script>                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("f4eaf0c3-19b6-4a8a-9ad2-7eaf267cece4")) {                    Plotly.newPlot(                        "f4eaf0c3-19b6-4a8a-9ad2-7eaf267cece4",                        [{"line":{"color":"#4f8ef7","width":2.5},"marker":{"size":7},"mode":"lines+markers","name":"Total","x":[2019,2020,2021,2022,2023,2024],"y":[18.086723232700002,17.4414583257,17.1707942035,16.666661052200002,17.233407253200003,17.357663435400003],"type":"scatter"},{"line":{"color":"#a47ee8","dash":"solid","width":2},"marker":{"size":6},"mode":"lines+markers","name":"Female","x":[2019,2020,2021,2022,2023,2024],"y":[9.948546916700002,9.830177913700002,9.8020820778,9.539046074000002,9.792311269299999,10.022282089099999],"type":"scatter"},{"line":{"color":"#e06c4a","dash":"solid","width":2},"marker":{"size":6},"mode":"lines+markers","name":"Male","x":[2019,2020,2021,2022,2023,2024],"y":[8.138176316,7.611280412,7.368712125700001,7.1276149782,7.4410959838999995,7.3353813463],"type":"scatter"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2}}},"shapes":[{"line":{"color":"gray","dash":"dot"},"type":"line","x0":2020,"x1":2020,"xref":"x","y0":0,"y1":1,"yref":"y domain"}],"annotations":[{"showarrow":false,"text":"COVID-19","x":2020,"xanchor":"left","xref":"x","y":1,"yanchor":"top","yref":"y domain"}],"legend":{"orientation":"h","y":1.1},"yaxis":{"title":{"text":"Enrolled (millions)"},"range":[6,20]},"margin":{"t":40,"b":40},"xaxis":{"title":{"text":"Year"}},"height":400},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('f4eaf0c3-19b6-4a8a-9ad2-7eaf267cece4');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };            </script>        </div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-trend-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.1: College enrollment trend 2019–2024, by sex (CPS October, API-derived)
+</figcaption>
+</figure>
+</div>
+</div>
+<p>Total college enrollment in 2024 (<strong>17.36M</strong>) remains <strong>4.0% below the 2019 level</strong> (18.09M). The press release’s positive YoY framing is accurate; the incomplete recovery is the more important story.</p>
+</section>
+<section id="the-gender-gap" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="the-gender-gap"><span class="header-section-number">3.5</span> The Gender Gap</h2>
+<p>The most striking structural feature of these data is not the headline number — it is the male-female enrollment split.</p>
+<div id="cell-fig-gender" class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>Gender gap visualization</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>gender_ratio <span class="op">=</span> [trend[<span class="bu">str</span>(y)][<span class="st">"female"</span>] <span class="op">/</span> (trend[<span class="bu">str</span>(y)][<span class="st">"female"</span>] <span class="op">+</span> trend[<span class="bu">str</span>(y)][<span class="st">"male"</span>]) <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>                <span class="cf">for</span> y <span class="kw">in</span> years]</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> make_subplots(rows<span class="op">=</span><span class="dv">1</span>, cols<span class="op">=</span><span class="dv">2</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    subplot_titles<span class="op">=</span>(<span class="st">"Enrollment by sex (M)"</span>, <span class="st">"Female share (%)"</span>))</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>fig.add_trace(go.Bar(x<span class="op">=</span>years, y<span class="op">=</span>female, name<span class="op">=</span><span class="st">"Female"</span>,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    marker_color<span class="op">=</span><span class="st">"#a47ee8"</span>), row<span class="op">=</span><span class="dv">1</span>, col<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>fig.add_trace(go.Bar(x<span class="op">=</span>years, y<span class="op">=</span>male, name<span class="op">=</span><span class="st">"Male"</span>,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    marker_color<span class="op">=</span><span class="st">"#e06c4a"</span>), row<span class="op">=</span><span class="dv">1</span>, col<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>fig.add_trace(go.Scatter(x<span class="op">=</span>years, y<span class="op">=</span>gender_ratio, name<span class="op">=</span><span class="st">"Female %"</span>,</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    line<span class="op">=</span><span class="bu">dict</span>(color<span class="op">=</span><span class="st">"#a47ee8"</span>, width<span class="op">=</span><span class="fl">2.5</span>), mode<span class="op">=</span><span class="st">"lines+markers"</span>,</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    marker<span class="op">=</span><span class="bu">dict</span>(size<span class="op">=</span><span class="dv">7</span>), showlegend<span class="op">=</span><span class="va">False</span>), row<span class="op">=</span><span class="dv">1</span>, col<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>fig.add_hline(y<span class="op">=</span><span class="dv">50</span>, line_dash<span class="op">=</span><span class="st">"dot"</span>, line_color<span class="op">=</span><span class="st">"gray"</span>, row<span class="op">=</span><span class="dv">1</span>, col<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>fig.update_layout(barmode<span class="op">=</span><span class="st">"group"</span>, template<span class="op">=</span><span class="st">"plotly_white"</span>,</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    height<span class="op">=</span><span class="dv">380</span>, legend<span class="op">=</span><span class="bu">dict</span>(orientation<span class="op">=</span><span class="st">"h"</span>, y<span class="op">=</span><span class="fl">1.12</span>),</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    margin<span class="op">=</span><span class="bu">dict</span>(t<span class="op">=</span><span class="dv">50</span>, b<span class="op">=</span><span class="dv">40</span>))</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div id="fig-gender" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-gender-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>            <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG"></script><script>if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}</script>                <script>window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.4.0.min.js" integrity="sha256-KEmPoupLpFyGMyGAiOsiNDbKDKAvxXAn/W+oQa0ZAfk=" crossorigin="anonymous"></script>                <div id="00a12531-9a59-479c-bfad-f6843800f3f3" class="plotly-graph-div" style="height:380px; width:100%;"></div>            <script>                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("00a12531-9a59-479c-bfad-f6843800f3f3")) {                    Plotly.newPlot(                        "00a12531-9a59-479c-bfad-f6843800f3f3",                        [{"marker":{"color":"#a47ee8"},"name":"Female","x":[2019,2020,2021,2022,2023,2024],"y":[9.948546916700002,9.830177913700002,9.8020820778,9.539046074000002,9.792311269299999,10.022282089099999],"type":"bar","xaxis":"x","yaxis":"y"},{"marker":{"color":"#e06c4a"},"name":"Male","x":[2019,2020,2021,2022,2023,2024],"y":[8.138176316,7.611280412,7.368712125700001,7.1276149782,7.4410959838999995,7.3353813463],"type":"bar","xaxis":"x","yaxis":"y"},{"line":{"color":"#a47ee8","width":2.5},"marker":{"size":7},"mode":"lines+markers","name":"Female %","showlegend":false,"x":[2019,2020,2021,2022,2023,2024],"y":[55.00469481787318,56.36098616372708,57.08578159886161,57.23429572440274,56.82167853070208,57.739811158338895],"type":"scatter","xaxis":"x2","yaxis":"y2"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2}}},"xaxis":{"anchor":"y","domain":[0.0,0.45]},"yaxis":{"anchor":"x","domain":[0.0,1.0]},"xaxis2":{"anchor":"y2","domain":[0.55,1.0]},"yaxis2":{"anchor":"x2","domain":[0.0,1.0]},"annotations":[{"font":{"size":16},"showarrow":false,"text":"Enrollment by sex (M)","x":0.225,"xanchor":"center","xref":"paper","y":1.0,"yanchor":"bottom","yref":"paper"},{"font":{"size":16},"showarrow":false,"text":"Female share (%)","x":0.775,"xanchor":"center","xref":"paper","y":1.0,"yanchor":"bottom","yref":"paper"}],"shapes":[{"line":{"color":"gray","dash":"dot"},"type":"line","x0":0,"x1":1,"xref":"x2 domain","y0":50,"y1":50,"yref":"y2"}],"legend":{"orientation":"h","y":1.12},"margin":{"t":50,"b":40},"barmode":"group","height":380},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('00a12531-9a59-479c-bfad-f6843800f3f3');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };            </script>        </div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gender-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.2: College enrollment by sex, 2019–2024 (CPS October)
+</figcaption>
+</figure>
+</div>
+</div>
+<p>In 2024, <strong>57.7% of college students are female</strong> — 10.02M women vs.&nbsp;7.34M men. Male enrollment has fallen every year since 2019, declining <strong>9.9% over five years</strong> (8.14M → 7.34M). Female enrollment has held roughly flat before ticking up in 2024.</p>
+<p>The gender gap is mentioned in most enrollment press releases but rarely foregrounded. At 57.7/42.3, it is larger than most education-policy discussions acknowledge.</p>
+</section>
+<section id="the-black-enrollment-surge" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="the-black-enrollment-surge"><span class="header-section-number">3.6</span> The Black Enrollment Surge</h2>
+<div id="cell-fig-black-enrollment" class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>Demographic enrollment trends</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>black <span class="op">=</span> [trend[<span class="bu">str</span>(y)][<span class="st">"black"</span>] <span class="cf">for</span> y <span class="kw">in</span> years]</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>hisp  <span class="op">=</span> [trend[<span class="bu">str</span>(y)][<span class="st">"hisp"</span>]  <span class="cf">for</span> y <span class="kw">in</span> years]</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> go.Figure()</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>fig.add_trace(go.Scatter(x<span class="op">=</span>years, y<span class="op">=</span>black, name<span class="op">=</span><span class="st">"Black"</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    line<span class="op">=</span><span class="bu">dict</span>(color<span class="op">=</span><span class="st">"#e06c4a"</span>, width<span class="op">=</span><span class="fl">2.5</span>), mode<span class="op">=</span><span class="st">"lines+markers"</span>, marker<span class="op">=</span><span class="bu">dict</span>(size<span class="op">=</span><span class="dv">7</span>)))</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>fig.add_trace(go.Scatter(x<span class="op">=</span>years, y<span class="op">=</span>hisp, name<span class="op">=</span><span class="st">"Hispanic"</span>,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    line<span class="op">=</span><span class="bu">dict</span>(color<span class="op">=</span><span class="st">"#4ec9a0"</span>, width<span class="op">=</span><span class="fl">2.5</span>), mode<span class="op">=</span><span class="st">"lines+markers"</span>, marker<span class="op">=</span><span class="bu">dict</span>(size<span class="op">=</span><span class="dv">7</span>)))</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>fig.add_vline(x<span class="op">=</span><span class="dv">2020</span>, line_dash<span class="op">=</span><span class="st">"dot"</span>, line_color<span class="op">=</span><span class="st">"gray"</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>fig.update_layout(</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    xaxis_title<span class="op">=</span><span class="st">"Year"</span>, yaxis_title<span class="op">=</span><span class="st">"Enrolled (millions)"</span>,</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    template<span class="op">=</span><span class="st">"plotly_white"</span>, height<span class="op">=</span><span class="dv">380</span>,</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    legend<span class="op">=</span><span class="bu">dict</span>(orientation<span class="op">=</span><span class="st">"h"</span>, y<span class="op">=</span><span class="fl">1.1</span>),</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    margin<span class="op">=</span><span class="bu">dict</span>(t<span class="op">=</span><span class="dv">40</span>, b<span class="op">=</span><span class="dv">40</span>)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div id="fig-black-enrollment" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-black-enrollment-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>            <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG"></script><script>if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}</script>                <script>window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.4.0.min.js" integrity="sha256-KEmPoupLpFyGMyGAiOsiNDbKDKAvxXAn/W+oQa0ZAfk=" crossorigin="anonymous"></script>                <div id="6aafefa0-043c-4df5-9ebf-87cf1a914e41" class="plotly-graph-div" style="height:380px; width:100%;"></div>            <script>                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("6aafefa0-043c-4df5-9ebf-87cf1a914e41")) {                    Plotly.newPlot(                        "6aafefa0-043c-4df5-9ebf-87cf1a914e41",                        [{"line":{"color":"#e06c4a","width":2.5},"marker":{"size":7},"mode":"lines+markers","name":"Black","x":[2019,2020,2021,2022,2023,2024],"y":[2.7729704658000003,2.5455632136,2.6371807708,2.3707114755,2.5576357851,2.8206869564],"type":"scatter"},{"line":{"color":"#4ec9a0","width":2.5},"marker":{"size":7},"mode":"lines+markers","name":"Hispanic","x":[2019,2020,2021,2022,2023,2024],"y":[3.5330210686999997,3.4434141288,3.5177856178,3.4013200104,3.3358350742,3.4605653108000003],"type":"scatter"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2}}},"shapes":[{"line":{"color":"gray","dash":"dot"},"type":"line","x0":2020,"x1":2020,"xref":"x","y0":0,"y1":1,"yref":"y domain"}],"legend":{"orientation":"h","y":1.1},"margin":{"t":40,"b":40},"xaxis":{"title":{"text":"Year"}},"yaxis":{"title":{"text":"Enrolled (millions)"}},"height":380},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('6aafefa0-043c-4df5-9ebf-87cf1a914e41');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };            </script>        </div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-black-enrollment-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.3: Black and Hispanic college enrollment trend, 2019–2024
+</figcaption>
+</figure>
+</div>
+</div>
+<p>Black college enrollment rose <strong>+10.3%</strong> year-over-year (2.56M → 2.82M) — the largest single-year increase of any demographic group in the 2024 data. This is worth flagging as both encouraging and analytically suspect.</p>
+<p>Encouraging: the 2022 figure (2.37M) represented a multi-year low; 2024’s 2.82M is now above the pre-COVID 2019 level (2.77M).</p>
+<p>Analytically suspect: a 10.3% single-year shift from a household survey with ~99,000 records is large. The CPS does not publish standard errors through the API. Without replicate-weight-based variance estimates, it is not possible to determine whether this jump is statistically significant or an artifact of sampling variability in a smaller demographic cell.</p>
+</section>
+<section id="peer-review-what-the-release-gets-right-and-wrong" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="peer-review-what-the-release-gets-right-and-wrong"><span class="header-section-number">3.7</span> Peer Review: What the Release Gets Right and Wrong</h2>
+<section id="strengths-of-the-methodology" class="level3" data-number="3.7.1">
+<h3 data-number="3.7.1" class="anchored" data-anchor-id="strengths-of-the-methodology"><span class="header-section-number">3.7.1</span> Strengths of the methodology</h3>
+<p><strong>Continuity.</strong> The CPS October supplement has asked comparable questions since 1947. The trend data exists and is publicly accessible. That is unusual and valuable.</p>
+<p><strong>Timeliness.</strong> Results are available within roughly six months of the reference week — faster than the ACS.</p>
+<p><strong>Disaggregation.</strong> The microdata support breakdowns by age, sex, race, Hispanic origin, family income, and school level simultaneously. The API exposes most of this without needing to download the full public-use file.</p>
+</section>
+<section id="concerns" class="level3" data-number="3.7.2">
+<h3 data-number="3.7.2" class="anchored" data-anchor-id="concerns"><span class="header-section-number">3.7.2</span> Concerns</h3>
+<p><strong>1. October reference week is not enrollment.</strong> The survey asks whether a person is currently enrolled in the week of the survey. Students who enrolled in September and dropped by October are missed. Students who enrolled late are missed. Community college students on non-standard calendars are systematically undercounted. A press release that says “X million are enrolled in college” should say “X million reported being enrolled during the week of October 15–21.”</p>
+<p><strong>2. Self-report with no institutional validation.</strong> CPS enrollment figures are never cross-checked against IPEDS (the Integrated Postsecondary Education Data System), which is an institutional headcount census. IPEDS typically shows 1–2M more college students than CPS, partly due to the reference-period issue and partly due to definitional differences (IPEDS counts international students on visas; CPS sampling may undercount them). The press release never mentions this discrepancy.</p>
+<p><strong>3. No standard errors reported.</strong> The headline figures in a Census enrollment release are point estimates. The CPS uses a complex sample design with stratification and clustering; naively treating the data as simple random sample understates variance by 30–50% for subgroup estimates. The Bureau publishes replicate weights for proper variance estimation, but they are not accessible through the API. A release that says Black college enrollment rose 10.3% without a confidence interval is incomplete.</p>
+<p><strong>4. Headcounts, not rates.</strong> Reporting enrollment in millions obscures demographic change because the relevant population denominators are shifting. A press release noting that Black college enrollment hit 2.82M should also note the Black 18–24 population size in 2024 vs.&nbsp;2023. The enrollment <em>rate</em> is the more informative statistic.</p>
+<p><strong>5. Part-time decline understated.</strong> Part-time enrollment fell 2.4%. This likely reflects either (a) financial pressure pushing students to full-time to finish faster or (b) part-time students dropping out entirely. These are opposite interpretations. The press release does not investigate.</p>
+</section>
+<section id="suggested-improvements" class="level3" data-number="3.7.3">
+<h3 data-number="3.7.3" class="anchored" data-anchor-id="suggested-improvements"><span class="header-section-number">3.7.3</span> Suggested improvements</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Issue</th>
+<th>Recommended fix</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>No uncertainty quantification</td>
+<td>Publish 90% confidence intervals alongside point estimates; use BRR replicate weights</td>
+</tr>
+<tr class="even">
+<td>No IPEDS cross-check</td>
+<td>Include a one-paragraph reconciliation with IPEDS Fall enrollment each year</td>
+</tr>
+<tr class="odd">
+<td>Headcounts only</td>
+<td>Add enrollment <em>rates</em> (enrolled / civilian noninstitutional population by age group)</td>
+</tr>
+<tr class="even">
+<td>October snapshot framing</td>
+<td>State explicitly that figures reflect enrollment status in one reference week, not full-year enrollment</td>
+</tr>
+<tr class="odd">
+<td>Gender gap underemphasized</td>
+<td>The 57.7/42.3 female/male split warrants a dedicated section, not a footnote</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="potential-follow-on-projects" class="level3" data-number="3.7.4">
+<h3 data-number="3.7.4" class="anchored" data-anchor-id="potential-follow-on-projects"><span class="header-section-number">3.7.4</span> Potential follow-on projects</h3>
+<ul>
+<li><strong>Enrollment rates by age group</strong>: pull population denominators from ACS 1-year and compute enrollment rates; cleaner than headcounts for trend analysis</li>
+<li><strong>CPS vs.&nbsp;IPEDS reconciliation</strong>: compare CPS college headcounts to IPEDS Fall enrollment by year; document and explain the gap</li>
+<li><strong>Part-time to full-time shift</strong>: disaggregate the full-time/part-time trend by demographic; test whether the shift is concentrated in specific groups</li>
+<li><strong>Gender gap over time</strong>: the 57.7% female share is the highest on record; build a longer time series and test for structural break around 2010</li>
+</ul>
+</section>
+</section>
+<section id="summary" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="summary"><span class="header-section-number">3.8</span> Summary</h2>
+<p>The 2024 CPS October School Enrollment data show college enrollment at 17.36M — up 0.7% from 2023 but 4.0% below the 2019 peak. Full-time enrollment grew while part-time declined. Female students now account for 57.7% of college enrollment, with male enrollment down nearly 10% since 2019. Black college enrollment surged 10.3% YoY to 2.82M, recovering above pre-COVID levels, though the absence of standard errors in the API release makes statistical significance uncertain.</p>
+<p>The Bureau’s methodology is sound for what it measures, but press release framing omits uncertainty quantification, institutional cross-validation, and enrollment rates. The API is well-structured and reproduces the headline figures; the replicate weights needed for proper variance estimation require the full microdata files.</p>
 
 
 <!-- -->
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -866,159 +1209,271 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Education Enrollment, 2024"</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="an">number-sections:</span><span class="co"> true</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># Education Enrollment, 2024</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>::: {.callout-note icon=false}</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">## This Note</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>**Release:** US Census Bureau email announcement, May 2026</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>**Survey:** Current Population Survey — October School Enrollment Supplement, 2024</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>**Claim:** <span class="co">[</span><span class="ot">paste headline figure from the email here</span><span class="co">]</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>**Verdict:** <span class="co">[</span><span class="ot">fill in after pulling data</span><span class="co">]</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## The Claim</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; </span><span class="co">[</span><span class="ot">Paste the exact headline text from the Census Bureau email here.</span><span class="co">]</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>*Source: Census Bureau press release / email announcement, [date]*</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>The figures typically reported in school enrollment releases include:</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Total enrolled population (all ages)</span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Nursery school / preschool enrollment</span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>K–12 enrollment</span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>College enrollment (2-year and 4-year)</span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Year-over-year change</span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>The key question for each figure: which population definition, which reference period, and which variable group in the CPS October supplement produced it?</span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="fu">## The Source</span></span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>The October CPS School Enrollment supplement asks respondents whether they are currently enrolled in school. The reference period is the week containing the survey date (October). This differs from the ACS education enrollment question, which asks about enrollment at any time in the past 12 months — a broader definition that produces higher enrollment counts.</span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>**Survey:** Current Population Survey — School Enrollment (October)</span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>**Year:** 2024</span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>**API dataset:** <span class="in">`cps/school/oct`</span></span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>**Key variables:** <span class="in">`HEFAMINC`</span>, <span class="in">`PESCHFT`</span>, <span class="in">`PEEDUCA`</span>, <span class="in">`PESCHLVL`</span></span>
-<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>The CPS Public Use Microdata (PUMD) is the most granular option. The API provides tabulated estimates. Both should reproduce the headline.</span>
-<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a><span class="fu">## The API Pull</span></span>
-<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>::: {.callout-caution}</span>
-<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a><span class="fu">## TODO — Fill In After Pull</span></span>
-<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>Run the cells below after the 2024 CPS October supplement is available via the API (typically released ~6 months after the reference month). Check availability at <span class="in">`api.census.gov/data/&lt;year&gt;/cps/school/oct/variables.json`</span>.</span>
-<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: pull-enrollment</span></span>
-<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-summary: "Census API — CPS October School Enrollment 2024"</span></span>
-<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
-<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
-<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>API_KEY <span class="op">=</span> os.getenv(<span class="st">"CENSUS_API_KEY"</span>, <span class="st">""</span>)</span>
-<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>YEAR <span class="op">=</span> <span class="dv">2024</span></span>
-<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>DATASET <span class="op">=</span> <span class="st">"cps/school/oct"</span></span>
-<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a><span class="co"># Check available variables for this dataset/year</span></span>
-<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>var_url <span class="op">=</span> <span class="ss">f"https://api.census.gov/data/</span><span class="sc">{</span>YEAR<span class="sc">}</span><span class="ss">/</span><span class="sc">{</span>DATASET<span class="sc">}</span><span class="ss">/variables.json"</span></span>
-<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> requests.get(var_url, timeout<span class="op">=</span><span class="dv">30</span>)</span>
-<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> r.status_code <span class="op">==</span> <span class="dv">200</span>:</span>
-<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a>    variables <span class="op">=</span> r.json()[<span class="st">"variables"</span>]</span>
-<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Filter to school enrollment variables</span></span>
-<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>    enroll_vars <span class="op">=</span> {k: v <span class="cf">for</span> k, v <span class="kw">in</span> variables.items()</span>
-<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>                   <span class="cf">if</span> <span class="st">"ENROLL"</span> <span class="kw">in</span> k.upper() <span class="kw">or</span> <span class="st">"SCHOOL"</span> <span class="kw">in</span> k.upper()</span>
-<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a>                   <span class="kw">or</span> <span class="st">"PESC"</span> <span class="kw">in</span> k.upper()}</span>
-<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> k, v <span class="kw">in</span> <span class="bu">sorted</span>(enroll_vars.items()):</span>
-<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>k<span class="sc">:25s}</span><span class="ss">  </span><span class="sc">{</span>v<span class="sc">.</span>get(<span class="st">'label'</span>, <span class="st">''</span>)<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Dataset not yet available for </span><span class="sc">{</span>YEAR<span class="sc">}</span><span class="ss">: HTTP </span><span class="sc">{</span>r<span class="sc">.</span>status_code<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: pull-national-totals</span></span>
-<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-summary: "Pull national enrollment totals"</span></span>
-<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a><span class="co"># National enrollment by school level</span></span>
-<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a><span class="co"># PESCHLVL: school level (nursery, K-12, college)</span></span>
-<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a><span class="co"># PESCHFT: full-time vs part-time college enrollment</span></span>
-<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> {</span>
-<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a>    <span class="st">"get"</span>: <span class="st">"PESCHLVL,PWSSWGT"</span>,   <span class="co"># school level + person weight</span></span>
-<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a>    <span class="st">"for"</span>: <span class="st">"us:1"</span>,</span>
-<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a>    <span class="st">"key"</span>: API_KEY,</span>
-<span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a>base <span class="op">=</span> <span class="ss">f"https://api.census.gov/data/</span><span class="sc">{</span>YEAR<span class="sc">}</span><span class="ss">/</span><span class="sc">{</span>DATASET<span class="sc">}</span><span class="ss">"</span></span>
-<span id="cb3-98"><a href="#cb3-98" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> requests.get(base, params<span class="op">=</span>params, timeout<span class="op">=</span><span class="dv">30</span>)</span>
-<span id="cb3-99"><a href="#cb3-99" aria-hidden="true" tabindex="-1"></a>r.raise_for_status()</span>
-<span id="cb3-100"><a href="#cb3-100" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> r.json()</span>
-<span id="cb3-101"><a href="#cb3-101" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data[<span class="dv">1</span>:], columns<span class="op">=</span>data[<span class="dv">0</span>])</span>
-<span id="cb3-102"><a href="#cb3-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-103"><a href="#cb3-103" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to numeric</span></span>
-<span id="cb3-104"><a href="#cb3-104" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"PESCHLVL"</span>] <span class="op">=</span> pd.to_numeric(df[<span class="st">"PESCHLVL"</span>])</span>
-<span id="cb3-105"><a href="#cb3-105" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"PWSSWGT"</span>] <span class="op">=</span> pd.to_numeric(df[<span class="st">"PWSSWGT"</span>])</span>
-<span id="cb3-106"><a href="#cb3-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-107"><a href="#cb3-107" aria-hidden="true" tabindex="-1"></a><span class="co"># School level codes (check variables.json for exact mapping)</span></span>
-<span id="cb3-108"><a href="#cb3-108" aria-hidden="true" tabindex="-1"></a>level_map <span class="op">=</span> {</span>
-<span id="cb3-109"><a href="#cb3-109" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1</span>: <span class="st">"Nursery/preschool"</span>,</span>
-<span id="cb3-110"><a href="#cb3-110" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span>: <span class="st">"K–12"</span>,</span>
-<span id="cb3-111"><a href="#cb3-111" aria-hidden="true" tabindex="-1"></a>    <span class="dv">3</span>: <span class="st">"College/university"</span>,</span>
-<span id="cb3-112"><a href="#cb3-112" aria-hidden="true" tabindex="-1"></a>    <span class="op">-</span><span class="dv">1</span>: <span class="st">"Not enrolled / not applicable"</span>,</span>
-<span id="cb3-113"><a href="#cb3-113" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb3-114"><a href="#cb3-114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-115"><a href="#cb3-115" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"level"</span>] <span class="op">=</span> df[<span class="st">"PESCHLVL"</span>].<span class="bu">map</span>(level_map)</span>
-<span id="cb3-116"><a href="#cb3-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-117"><a href="#cb3-117" aria-hidden="true" tabindex="-1"></a>totals <span class="op">=</span> (df[df[<span class="st">"PESCHLVL"</span>] <span class="op">&gt;</span> <span class="dv">0</span>]</span>
-<span id="cb3-118"><a href="#cb3-118" aria-hidden="true" tabindex="-1"></a>          .groupby(<span class="st">"level"</span>)[<span class="st">"PWSSWGT"</span>]</span>
-<span id="cb3-119"><a href="#cb3-119" aria-hidden="true" tabindex="-1"></a>          .<span class="bu">sum</span>()</span>
-<span id="cb3-120"><a href="#cb3-120" aria-hidden="true" tabindex="-1"></a>          .div(<span class="dv">1000</span>)   <span class="co"># to thousands</span></span>
-<span id="cb3-121"><a href="#cb3-121" aria-hidden="true" tabindex="-1"></a>          .reset_index()</span>
-<span id="cb3-122"><a href="#cb3-122" aria-hidden="true" tabindex="-1"></a>          .rename(columns<span class="op">=</span>{<span class="st">"PWSSWGT"</span>: <span class="st">"enrolled_thousands"</span>}))</span>
-<span id="cb3-123"><a href="#cb3-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-124"><a href="#cb3-124" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(totals.to_string(index<span class="op">=</span><span class="va">False</span>))</span>
-<span id="cb3-125"><a href="#cb3-125" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb3-126"><a href="#cb3-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-127"><a href="#cb3-127" aria-hidden="true" tabindex="-1"></a><span class="fu">## Comparison</span></span>
-<span id="cb3-128"><a href="#cb3-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-129"><a href="#cb3-129" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Figure <span class="pp">|</span> Press Release <span class="pp">|</span> API Result <span class="pp">|</span> Difference <span class="pp">|</span></span>
-<span id="cb3-130"><a href="#cb3-130" aria-hidden="true" tabindex="-1"></a><span class="pp">|--------|--------------|------------|------------|</span></span>
-<span id="cb3-131"><a href="#cb3-131" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Total enrolled <span class="pp">|</span> — <span class="pp">|</span> — <span class="pp">|</span> — <span class="pp">|</span></span>
-<span id="cb3-132"><a href="#cb3-132" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> K–12 <span class="pp">|</span> — <span class="pp">|</span> — <span class="pp">|</span> — <span class="pp">|</span></span>
-<span id="cb3-133"><a href="#cb3-133" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> College <span class="pp">|</span> — <span class="pp">|</span> — <span class="pp">|</span> — <span class="pp">|</span></span>
-<span id="cb3-134"><a href="#cb3-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-135"><a href="#cb3-135" aria-hidden="true" tabindex="-1"></a>*Fill in after running the pull above.*</span>
-<span id="cb3-136"><a href="#cb3-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-137"><a href="#cb3-137" aria-hidden="true" tabindex="-1"></a><span class="fu">## Observations</span></span>
-<span id="cb3-138"><a href="#cb3-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-139"><a href="#cb3-139" aria-hidden="true" tabindex="-1"></a>Things to note while pulling this data — potential seeds for future projects:</span>
-<span id="cb3-140"><a href="#cb3-140" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-141"><a href="#cb3-141" aria-hidden="true" tabindex="-1"></a>**1. ACS vs. CPS enrollment gap**</span>
-<span id="cb3-142"><a href="#cb3-142" aria-hidden="true" tabindex="-1"></a>The ACS <span class="in">`B14001`</span> group reports school enrollment for the past 12 months; the CPS October supplement reports current enrollment. The ACS count is consistently higher. Quantifying this gap by level and geography is a clean methodological note.</span>
-<span id="cb3-143"><a href="#cb3-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-144"><a href="#cb3-144" aria-hidden="true" tabindex="-1"></a>**2. Geographic disaggregation**</span>
-<span id="cb3-145"><a href="#cb3-145" aria-hidden="true" tabindex="-1"></a>The CPS is designed for national and state-level estimates. For county or tract-level enrollment, the ACS 5-year is the right product. Mapping K–12 enrollment rates at the county level from ACS 5-year data (<span class="in">`B14003`</span>) is a natural visualization project.</span>
-<span id="cb3-146"><a href="#cb3-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-147"><a href="#cb3-147" aria-hidden="true" tabindex="-1"></a>**3. Enrollment trends**</span>
-<span id="cb3-148"><a href="#cb3-148" aria-hidden="true" tabindex="-1"></a>The CPS October supplement goes back to 1947. A time-series of college enrollment rates by age group and sex is available with no additional data acquisition beyond API calls.</span>
-<span id="cb3-149"><a href="#cb3-149" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-150"><a href="#cb3-150" aria-hidden="true" tabindex="-1"></a>**4. College enrollment by institution type**</span>
-<span id="cb3-151"><a href="#cb3-151" aria-hidden="true" tabindex="-1"></a>The CPS asks whether enrolled at 2-year or 4-year institution (<span class="in">`PESCHLVL`</span> values distinguish these). Tracking the 2-year vs. 4-year split over time, especially post-2020, may be worth a dedicated note.</span>
-<span id="cb3-152"><a href="#cb3-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-153"><a href="#cb3-153" aria-hidden="true" tabindex="-1"></a><span class="fu">## Summary</span></span>
-<span id="cb3-154"><a href="#cb3-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-155"><a href="#cb3-155" aria-hidden="true" tabindex="-1"></a>*[Fill in after completing the pull and comparison.]*</span>
-<span id="cb3-156"><a href="#cb3-156" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-157"><a href="#cb3-157" aria-hidden="true" tabindex="-1"></a>The Census Bureau's 2024 education enrollment figures come from the CPS October School Enrollment supplement. The API reproduces the headline <span class="co">[</span><span class="ot">figure / with the following discrepancy</span><span class="co">]</span>. The dataset supports geographic disaggregation to the state level and time-series analysis back to <span class="co">[</span><span class="ot">year</span><span class="co">]</span>. Observations on API structure and potential follow-on analyses are logged above.</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Education Enrollment, 2024"</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="an">number-sections:</span><span class="co"> true</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>::: {.callout-note icon=false}</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">## This Note</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>**Release:** US Census Bureau, 2024 School Enrollment data (CPS October supplement)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>**Survey:** Current Population Survey — October School Enrollment Supplement, 2024</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>**Records pulled:** 99,045 (weighted to national population)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>**Verdict:** Headline figures reproduced. Notable findings on gender gap, Black enrollment surge, and continued below-peak college recovery merit closer attention than a typical press release affords.</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="fu">## The Survey</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>The Census Bureau's school enrollment figures come from the **Current Population Survey (CPS) October Supplement** — a monthly household survey that, every October, adds a battery of questions about school attendance. The reference period is the survey week, typically the week containing October 15. Respondents report whether household members are currently enrolled, at what level, and whether full- or part-time.</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>This is not the same as counting students. It is counting *households reporting students*, weighted to the national population. The distinction matters and is addressed in the review section below.</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## The Data Pull</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>All analysis below uses the Census Bureau's public API at <span class="in">`api.census.gov/data/2024/cps/school/oct`</span>. Key variables:</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Variable <span class="pp">|</span> Description <span class="pp">|</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`PESCHLVL`</span> <span class="pp">|</span> School level: 1 = High school, 2 = College/university <span class="pp">|</span></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`PESCH35`</span> <span class="pp">|</span> Enrolled, age 3–5 (nursery / preK / kindergarten) <span class="pp">|</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`PESCH614`</span> <span class="pp">|</span> Enrolled, age 6–14 <span class="pp">|</span></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`PESCHFT`</span> <span class="pp">|</span> College enrollment type: 1 = Full-time, 2 = Part-time <span class="pp">|</span></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`PESEX`</span> <span class="pp">|</span> Sex: 1 = Male, 2 = Female <span class="pp">|</span></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`PTDTRACE`</span> <span class="pp">|</span> Race (detailed) <span class="pp">|</span></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`PEHSPNON`</span> <span class="pp">|</span> Hispanic origin: 1 = Hispanic, 2 = Non-Hispanic <span class="pp">|</span></span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`PWSSWGT`</span> <span class="pp">|</span> Final person weight — use this for all population estimates <span class="pp">|</span></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: setup</span></span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-summary: "Load data and compute weighted totals"</span></span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os, json</span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.graph_objects <span class="im">as</span> go</span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotly.subplots <span class="im">import</span> make_subplots</span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a><span class="co"># Load pre-pulled data (cached from API pull)</span></span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>df24 <span class="op">=</span> pd.read_pickle(<span class="st">"data/processed/cps_school_2024.pkl"</span>)</span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>df23 <span class="op">=</span> pd.read_pickle(<span class="st">"data/processed/cps_school_2023.pkl"</span>)</span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">"data/processed/trend_2019_2024.json"</span>) <span class="im">as</span> f:</span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>    trend <span class="op">=</span> json.load(f)</span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a>W <span class="op">=</span> <span class="st">"PWSSWGT"</span></span>
+<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> wtot(df, mask):</span>
+<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Weighted total for a boolean mask, in millions."""</span></span>
+<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> df[mask][W].<span class="bu">sum</span>() <span class="op">/</span> <span class="fl">1e6</span></span>
+<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a><span class="co"># 2024 core estimates</span></span>
+<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a>e35_24   <span class="op">=</span> wtot(df24, df24[<span class="st">"PESCH35"</span>]<span class="op">==</span><span class="dv">1</span>)</span>
+<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a>e614_24  <span class="op">=</span> wtot(df24, df24[<span class="st">"PESCH614"</span>]<span class="op">==</span><span class="dv">1</span>)</span>
+<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a>ehs_24   <span class="op">=</span> wtot(df24, df24[<span class="st">"PESCHLVL"</span>]<span class="op">==</span><span class="dv">1</span>)</span>
+<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a>ecol_24  <span class="op">=</span> wtot(df24, df24[<span class="st">"PESCHLVL"</span>]<span class="op">==</span><span class="dv">2</span>)</span>
+<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a>eft_24   <span class="op">=</span> wtot(df24, (df24[<span class="st">"PESCHLVL"</span>]<span class="op">==</span><span class="dv">2</span>) <span class="op">&amp;</span> (df24[<span class="st">"PESCHFT"</span>]<span class="op">==</span><span class="dv">1</span>))</span>
+<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a>ept_24   <span class="op">=</span> wtot(df24, (df24[<span class="st">"PESCHLVL"</span>]<span class="op">==</span><span class="dv">2</span>) <span class="op">&amp;</span> (df24[<span class="st">"PESCHFT"</span>]<span class="op">==</span><span class="dv">2</span>))</span>
+<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a>em_24    <span class="op">=</span> wtot(df24, (df24[<span class="st">"PESCHLVL"</span>]<span class="op">==</span><span class="dv">2</span>) <span class="op">&amp;</span> (df24[<span class="st">"PESEX"</span>]<span class="op">==</span><span class="dv">1</span>))</span>
+<span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a>ef_24    <span class="op">=</span> wtot(df24, (df24[<span class="st">"PESCHLVL"</span>]<span class="op">==</span><span class="dv">2</span>) <span class="op">&amp;</span> (df24[<span class="st">"PESEX"</span>]<span class="op">==</span><span class="dv">2</span>))</span>
+<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a>ehisp_24 <span class="op">=</span> wtot(df24, (df24[<span class="st">"PESCHLVL"</span>]<span class="op">==</span><span class="dv">2</span>) <span class="op">&amp;</span> (df24[<span class="st">"PEHSPNON"</span>]<span class="op">==</span><span class="dv">1</span>))</span>
+<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a>ewh_24   <span class="op">=</span> wtot(df24, (df24[<span class="st">"PESCHLVL"</span>]<span class="op">==</span><span class="dv">2</span>) <span class="op">&amp;</span> (df24[<span class="st">"PTDTRACE"</span>]<span class="op">==</span><span class="dv">1</span>) <span class="op">&amp;</span> (df24[<span class="st">"PEHSPNON"</span>]<span class="op">==</span><span class="dv">2</span>))</span>
+<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a>ebl_24   <span class="op">=</span> wtot(df24, (df24[<span class="st">"PESCHLVL"</span>]<span class="op">==</span><span class="dv">2</span>) <span class="op">&amp;</span> (df24[<span class="st">"PTDTRACE"</span>]<span class="op">==</span><span class="dv">2</span>))</span>
+<span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a>eas_24   <span class="op">=</span> wtot(df24, (df24[<span class="st">"PESCHLVL"</span>]<span class="op">==</span><span class="dv">2</span>) <span class="op">&amp;</span> (df24[<span class="st">"PTDTRACE"</span>]<span class="op">==</span><span class="dv">4</span>))</span>
+<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-74"><a href="#cb6-74" aria-hidden="true" tabindex="-1"></a><span class="co"># 2023 comparison</span></span>
+<span id="cb6-75"><a href="#cb6-75" aria-hidden="true" tabindex="-1"></a>ecol_23  <span class="op">=</span> wtot(df23, df23[<span class="st">"PESCHLVL"</span>]<span class="op">==</span><span class="dv">2</span>)</span>
+<span id="cb6-76"><a href="#cb6-76" aria-hidden="true" tabindex="-1"></a>ehs_23   <span class="op">=</span> wtot(df23, df23[<span class="st">"PESCHLVL"</span>]<span class="op">==</span><span class="dv">1</span>)</span>
+<span id="cb6-77"><a href="#cb6-77" aria-hidden="true" tabindex="-1"></a>e35_23   <span class="op">=</span> wtot(df23, df23[<span class="st">"PESCH35"</span>]<span class="op">==</span><span class="dv">1</span>)</span>
+<span id="cb6-78"><a href="#cb6-78" aria-hidden="true" tabindex="-1"></a>ebl_23   <span class="op">=</span> wtot(df23, (df23[<span class="st">"PESCHLVL"</span>]<span class="op">==</span><span class="dv">2</span>) <span class="op">&amp;</span> (df23[<span class="st">"PTDTRACE"</span>]<span class="op">==</span><span class="dv">2</span>))</span>
+<span id="cb6-79"><a href="#cb6-79" aria-hidden="true" tabindex="-1"></a>em_23    <span class="op">=</span> wtot(df23, (df23[<span class="st">"PESCHLVL"</span>]<span class="op">==</span><span class="dv">2</span>) <span class="op">&amp;</span> (df23[<span class="st">"PESEX"</span>]<span class="op">==</span><span class="dv">1</span>))</span>
+<span id="cb6-80"><a href="#cb6-80" aria-hidden="true" tabindex="-1"></a>ef_23    <span class="op">=</span> wtot(df23, (df23[<span class="st">"PESCHLVL"</span>]<span class="op">==</span><span class="dv">2</span>) <span class="op">&amp;</span> (df23[<span class="st">"PESEX"</span>]<span class="op">==</span><span class="dv">2</span>))</span>
+<span id="cb6-81"><a href="#cb6-81" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-82"><a href="#cb6-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-83"><a href="#cb6-83" aria-hidden="true" tabindex="-1"></a><span class="fu">## Headline Figures</span></span>
+<span id="cb6-84"><a href="#cb6-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-85"><a href="#cb6-85" aria-hidden="true" tabindex="-1"></a>The table below reproduces the top-line estimates from 2024 and compares them to 2023.</span>
+<span id="cb6-86"><a href="#cb6-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-89"><a href="#cb6-89" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb6-90"><a href="#cb6-90" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-headline</span></span>
+<span id="cb6-91"><a href="#cb6-91" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "2024 CPS October School Enrollment — API-derived estimates"</span></span>
+<span id="cb6-92"><a href="#cb6-92" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-summary: "Summary table"</span></span>
+<span id="cb6-93"><a href="#cb6-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-94"><a href="#cb6-94" aria-hidden="true" tabindex="-1"></a>rows <span class="op">=</span> [</span>
+<span id="cb6-95"><a href="#cb6-95" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"Nursery / preschool / kindergarten (age 3–5)"</span>, e35_24,  wtot(df23, df23[<span class="st">"PESCH35"</span>]<span class="op">==</span><span class="dv">1</span>)),</span>
+<span id="cb6-96"><a href="#cb6-96" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"Age 6–14"</span>,                                     e614_24, wtot(df23, df23[<span class="st">"PESCH614"</span>]<span class="op">==</span><span class="dv">1</span>)),</span>
+<span id="cb6-97"><a href="#cb6-97" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"High school"</span>,                                  ehs_24,  ehs_23),</span>
+<span id="cb6-98"><a href="#cb6-98" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"College — total"</span>,                              ecol_24, ecol_23),</span>
+<span id="cb6-99"><a href="#cb6-99" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"  Full-time"</span>,                                  eft_24,  wtot(df23, (df23[<span class="st">"PESCHLVL"</span>]<span class="op">==</span><span class="dv">2</span>)<span class="op">&amp;</span>(df23[<span class="st">"PESCHFT"</span>]<span class="op">==</span><span class="dv">1</span>))),</span>
+<span id="cb6-100"><a href="#cb6-100" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"  Part-time"</span>,                                  ept_24,  wtot(df23, (df23[<span class="st">"PESCHLVL"</span>]<span class="op">==</span><span class="dv">2</span>)<span class="op">&amp;</span>(df23[<span class="st">"PESCHFT"</span>]<span class="op">==</span><span class="dv">2</span>))),</span>
+<span id="cb6-101"><a href="#cb6-101" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb6-102"><a href="#cb6-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-103"><a href="#cb6-103" aria-hidden="true" tabindex="-1"></a>tbl <span class="op">=</span> pd.DataFrame(rows, columns<span class="op">=</span>[<span class="st">"Category"</span>, <span class="st">"2024 (M)"</span>, <span class="st">"2023 (M)"</span>])</span>
+<span id="cb6-104"><a href="#cb6-104" aria-hidden="true" tabindex="-1"></a>tbl[<span class="st">"Change (M)"</span>] <span class="op">=</span> tbl[<span class="st">"2024 (M)"</span>] <span class="op">-</span> tbl[<span class="st">"2023 (M)"</span>]</span>
+<span id="cb6-105"><a href="#cb6-105" aria-hidden="true" tabindex="-1"></a>tbl[<span class="st">"Change (%)"</span>] <span class="op">=</span> (tbl[<span class="st">"Change (M)"</span>] <span class="op">/</span> tbl[<span class="st">"2023 (M)"</span>]) <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb6-106"><a href="#cb6-106" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> c <span class="kw">in</span> [<span class="st">"2024 (M)"</span>,<span class="st">"2023 (M)"</span>,<span class="st">"Change (M)"</span>]:</span>
+<span id="cb6-107"><a href="#cb6-107" aria-hidden="true" tabindex="-1"></a>    tbl[c] <span class="op">=</span> tbl[c].<span class="bu">map</span>(<span class="st">"</span><span class="sc">{:.3f}</span><span class="st">"</span>.<span class="bu">format</span>)</span>
+<span id="cb6-108"><a href="#cb6-108" aria-hidden="true" tabindex="-1"></a>tbl[<span class="st">"Change (%)"</span>] <span class="op">=</span> tbl[<span class="st">"Change (%)"</span>].<span class="bu">map</span>(<span class="st">"</span><span class="sc">{:+.1f}</span><span class="st">%"</span>.<span class="bu">format</span>)</span>
+<span id="cb6-109"><a href="#cb6-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-110"><a href="#cb6-110" aria-hidden="true" tabindex="-1"></a>tbl.style.set_properties(<span class="op">**</span>{<span class="st">"text-align"</span>:<span class="st">"left"</span>})</span>
+<span id="cb6-111"><a href="#cb6-111" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-112"><a href="#cb6-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-113"><a href="#cb6-113" aria-hidden="true" tabindex="-1"></a>**Key takeaways from the table:**</span>
+<span id="cb6-114"><a href="#cb6-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-115"><a href="#cb6-115" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>College enrollment ticked up **+0.7%** (+124,000) year-over-year, continuing a slow recovery from the 2022 trough.</span>
+<span id="cb6-116"><a href="#cb6-116" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Full-time college enrollment grew +1.6%; part-time fell −2.4%, suggesting a shift toward full-time status rather than net new students.</span>
+<span id="cb6-117"><a href="#cb6-117" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Nursery/preschool enrollment jumped **+3.9%** — the largest single-year increase in recent years.</span>
+<span id="cb6-118"><a href="#cb6-118" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>High school enrollment rose modestly (+1.4%).</span>
+<span id="cb6-119"><a href="#cb6-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-120"><a href="#cb6-120" aria-hidden="true" tabindex="-1"></a><span class="fu">## The Recovery Context</span></span>
+<span id="cb6-121"><a href="#cb6-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-122"><a href="#cb6-122" aria-hidden="true" tabindex="-1"></a>The press release headline of "college enrollment up" is accurate but incomplete without the five-year view. Enrollment peaked before COVID, dropped through 2022, and has only partially recovered.</span>
+<span id="cb6-123"><a href="#cb6-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-126"><a href="#cb6-126" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb6-127"><a href="#cb6-127" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-trend</span></span>
+<span id="cb6-128"><a href="#cb6-128" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "College enrollment trend 2019–2024, by sex (CPS October, API-derived)"</span></span>
+<span id="cb6-129"><a href="#cb6-129" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-summary: "College enrollment trend"</span></span>
+<span id="cb6-130"><a href="#cb6-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-131"><a href="#cb6-131" aria-hidden="true" tabindex="-1"></a>years <span class="op">=</span> [<span class="bu">int</span>(y) <span class="cf">for</span> y <span class="kw">in</span> <span class="bu">sorted</span>(trend.keys())]</span>
+<span id="cb6-132"><a href="#cb6-132" aria-hidden="true" tabindex="-1"></a>col_total <span class="op">=</span> [trend[<span class="bu">str</span>(y)][<span class="st">"college"</span>] <span class="cf">for</span> y <span class="kw">in</span> years]</span>
+<span id="cb6-133"><a href="#cb6-133" aria-hidden="true" tabindex="-1"></a>female    <span class="op">=</span> [trend[<span class="bu">str</span>(y)][<span class="st">"female"</span>]  <span class="cf">for</span> y <span class="kw">in</span> years]</span>
+<span id="cb6-134"><a href="#cb6-134" aria-hidden="true" tabindex="-1"></a>male      <span class="op">=</span> [trend[<span class="bu">str</span>(y)][<span class="st">"male"</span>]    <span class="cf">for</span> y <span class="kw">in</span> years]</span>
+<span id="cb6-135"><a href="#cb6-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-136"><a href="#cb6-136" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> go.Figure()</span>
+<span id="cb6-137"><a href="#cb6-137" aria-hidden="true" tabindex="-1"></a>fig.add_trace(go.Scatter(x<span class="op">=</span>years, y<span class="op">=</span>col_total, name<span class="op">=</span><span class="st">"Total"</span>,</span>
+<span id="cb6-138"><a href="#cb6-138" aria-hidden="true" tabindex="-1"></a>    line<span class="op">=</span><span class="bu">dict</span>(color<span class="op">=</span><span class="st">"#4f8ef7"</span>, width<span class="op">=</span><span class="fl">2.5</span>),</span>
+<span id="cb6-139"><a href="#cb6-139" aria-hidden="true" tabindex="-1"></a>    mode<span class="op">=</span><span class="st">"lines+markers"</span>, marker<span class="op">=</span><span class="bu">dict</span>(size<span class="op">=</span><span class="dv">7</span>)))</span>
+<span id="cb6-140"><a href="#cb6-140" aria-hidden="true" tabindex="-1"></a>fig.add_trace(go.Scatter(x<span class="op">=</span>years, y<span class="op">=</span>female, name<span class="op">=</span><span class="st">"Female"</span>,</span>
+<span id="cb6-141"><a href="#cb6-141" aria-hidden="true" tabindex="-1"></a>    line<span class="op">=</span><span class="bu">dict</span>(color<span class="op">=</span><span class="st">"#a47ee8"</span>, width<span class="op">=</span><span class="dv">2</span>, dash<span class="op">=</span><span class="st">"solid"</span>),</span>
+<span id="cb6-142"><a href="#cb6-142" aria-hidden="true" tabindex="-1"></a>    mode<span class="op">=</span><span class="st">"lines+markers"</span>, marker<span class="op">=</span><span class="bu">dict</span>(size<span class="op">=</span><span class="dv">6</span>)))</span>
+<span id="cb6-143"><a href="#cb6-143" aria-hidden="true" tabindex="-1"></a>fig.add_trace(go.Scatter(x<span class="op">=</span>years, y<span class="op">=</span>male, name<span class="op">=</span><span class="st">"Male"</span>,</span>
+<span id="cb6-144"><a href="#cb6-144" aria-hidden="true" tabindex="-1"></a>    line<span class="op">=</span><span class="bu">dict</span>(color<span class="op">=</span><span class="st">"#e06c4a"</span>, width<span class="op">=</span><span class="dv">2</span>, dash<span class="op">=</span><span class="st">"solid"</span>),</span>
+<span id="cb6-145"><a href="#cb6-145" aria-hidden="true" tabindex="-1"></a>    mode<span class="op">=</span><span class="st">"lines+markers"</span>, marker<span class="op">=</span><span class="bu">dict</span>(size<span class="op">=</span><span class="dv">6</span>)))</span>
+<span id="cb6-146"><a href="#cb6-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-147"><a href="#cb6-147" aria-hidden="true" tabindex="-1"></a>fig.add_vline(x<span class="op">=</span><span class="dv">2020</span>, line_dash<span class="op">=</span><span class="st">"dot"</span>, line_color<span class="op">=</span><span class="st">"gray"</span>,</span>
+<span id="cb6-148"><a href="#cb6-148" aria-hidden="true" tabindex="-1"></a>              annotation_text<span class="op">=</span><span class="st">"COVID-19"</span>, annotation_position<span class="op">=</span><span class="st">"top right"</span>)</span>
+<span id="cb6-149"><a href="#cb6-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-150"><a href="#cb6-150" aria-hidden="true" tabindex="-1"></a>fig.update_layout(</span>
+<span id="cb6-151"><a href="#cb6-151" aria-hidden="true" tabindex="-1"></a>    xaxis_title<span class="op">=</span><span class="st">"Year"</span>, yaxis_title<span class="op">=</span><span class="st">"Enrolled (millions)"</span>,</span>
+<span id="cb6-152"><a href="#cb6-152" aria-hidden="true" tabindex="-1"></a>    legend<span class="op">=</span><span class="bu">dict</span>(orientation<span class="op">=</span><span class="st">"h"</span>, y<span class="op">=</span><span class="fl">1.1</span>),</span>
+<span id="cb6-153"><a href="#cb6-153" aria-hidden="true" tabindex="-1"></a>    yaxis<span class="op">=</span><span class="bu">dict</span>(<span class="bu">range</span><span class="op">=</span>[<span class="dv">6</span>, <span class="dv">20</span>]),</span>
+<span id="cb6-154"><a href="#cb6-154" aria-hidden="true" tabindex="-1"></a>    template<span class="op">=</span><span class="st">"plotly_white"</span>, height<span class="op">=</span><span class="dv">400</span>,</span>
+<span id="cb6-155"><a href="#cb6-155" aria-hidden="true" tabindex="-1"></a>    margin<span class="op">=</span><span class="bu">dict</span>(t<span class="op">=</span><span class="dv">40</span>, b<span class="op">=</span><span class="dv">40</span>)</span>
+<span id="cb6-156"><a href="#cb6-156" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-157"><a href="#cb6-157" aria-hidden="true" tabindex="-1"></a>fig.show()</span>
+<span id="cb6-158"><a href="#cb6-158" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-159"><a href="#cb6-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-160"><a href="#cb6-160" aria-hidden="true" tabindex="-1"></a>Total college enrollment in 2024 (**17.36M**) remains **4.0% below the 2019 level** (18.09M). The press release's positive YoY framing is accurate; the incomplete recovery is the more important story.</span>
+<span id="cb6-161"><a href="#cb6-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-162"><a href="#cb6-162" aria-hidden="true" tabindex="-1"></a><span class="fu">## The Gender Gap</span></span>
+<span id="cb6-163"><a href="#cb6-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-164"><a href="#cb6-164" aria-hidden="true" tabindex="-1"></a>The most striking structural feature of these data is not the headline number — it is the male-female enrollment split.</span>
+<span id="cb6-165"><a href="#cb6-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-168"><a href="#cb6-168" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb6-169"><a href="#cb6-169" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-gender</span></span>
+<span id="cb6-170"><a href="#cb6-170" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "College enrollment by sex, 2019–2024 (CPS October)"</span></span>
+<span id="cb6-171"><a href="#cb6-171" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-summary: "Gender gap visualization"</span></span>
+<span id="cb6-172"><a href="#cb6-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-173"><a href="#cb6-173" aria-hidden="true" tabindex="-1"></a>gender_ratio <span class="op">=</span> [trend[<span class="bu">str</span>(y)][<span class="st">"female"</span>] <span class="op">/</span> (trend[<span class="bu">str</span>(y)][<span class="st">"female"</span>] <span class="op">+</span> trend[<span class="bu">str</span>(y)][<span class="st">"male"</span>]) <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb6-174"><a href="#cb6-174" aria-hidden="true" tabindex="-1"></a>                <span class="cf">for</span> y <span class="kw">in</span> years]</span>
+<span id="cb6-175"><a href="#cb6-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-176"><a href="#cb6-176" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> make_subplots(rows<span class="op">=</span><span class="dv">1</span>, cols<span class="op">=</span><span class="dv">2</span>,</span>
+<span id="cb6-177"><a href="#cb6-177" aria-hidden="true" tabindex="-1"></a>    subplot_titles<span class="op">=</span>(<span class="st">"Enrollment by sex (M)"</span>, <span class="st">"Female share (%)"</span>))</span>
+<span id="cb6-178"><a href="#cb6-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-179"><a href="#cb6-179" aria-hidden="true" tabindex="-1"></a>fig.add_trace(go.Bar(x<span class="op">=</span>years, y<span class="op">=</span>female, name<span class="op">=</span><span class="st">"Female"</span>,</span>
+<span id="cb6-180"><a href="#cb6-180" aria-hidden="true" tabindex="-1"></a>    marker_color<span class="op">=</span><span class="st">"#a47ee8"</span>), row<span class="op">=</span><span class="dv">1</span>, col<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb6-181"><a href="#cb6-181" aria-hidden="true" tabindex="-1"></a>fig.add_trace(go.Bar(x<span class="op">=</span>years, y<span class="op">=</span>male, name<span class="op">=</span><span class="st">"Male"</span>,</span>
+<span id="cb6-182"><a href="#cb6-182" aria-hidden="true" tabindex="-1"></a>    marker_color<span class="op">=</span><span class="st">"#e06c4a"</span>), row<span class="op">=</span><span class="dv">1</span>, col<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb6-183"><a href="#cb6-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-184"><a href="#cb6-184" aria-hidden="true" tabindex="-1"></a>fig.add_trace(go.Scatter(x<span class="op">=</span>years, y<span class="op">=</span>gender_ratio, name<span class="op">=</span><span class="st">"Female %"</span>,</span>
+<span id="cb6-185"><a href="#cb6-185" aria-hidden="true" tabindex="-1"></a>    line<span class="op">=</span><span class="bu">dict</span>(color<span class="op">=</span><span class="st">"#a47ee8"</span>, width<span class="op">=</span><span class="fl">2.5</span>), mode<span class="op">=</span><span class="st">"lines+markers"</span>,</span>
+<span id="cb6-186"><a href="#cb6-186" aria-hidden="true" tabindex="-1"></a>    marker<span class="op">=</span><span class="bu">dict</span>(size<span class="op">=</span><span class="dv">7</span>), showlegend<span class="op">=</span><span class="va">False</span>), row<span class="op">=</span><span class="dv">1</span>, col<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb6-187"><a href="#cb6-187" aria-hidden="true" tabindex="-1"></a>fig.add_hline(y<span class="op">=</span><span class="dv">50</span>, line_dash<span class="op">=</span><span class="st">"dot"</span>, line_color<span class="op">=</span><span class="st">"gray"</span>, row<span class="op">=</span><span class="dv">1</span>, col<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb6-188"><a href="#cb6-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-189"><a href="#cb6-189" aria-hidden="true" tabindex="-1"></a>fig.update_layout(barmode<span class="op">=</span><span class="st">"group"</span>, template<span class="op">=</span><span class="st">"plotly_white"</span>,</span>
+<span id="cb6-190"><a href="#cb6-190" aria-hidden="true" tabindex="-1"></a>    height<span class="op">=</span><span class="dv">380</span>, legend<span class="op">=</span><span class="bu">dict</span>(orientation<span class="op">=</span><span class="st">"h"</span>, y<span class="op">=</span><span class="fl">1.12</span>),</span>
+<span id="cb6-191"><a href="#cb6-191" aria-hidden="true" tabindex="-1"></a>    margin<span class="op">=</span><span class="bu">dict</span>(t<span class="op">=</span><span class="dv">50</span>, b<span class="op">=</span><span class="dv">40</span>))</span>
+<span id="cb6-192"><a href="#cb6-192" aria-hidden="true" tabindex="-1"></a>fig.show()</span>
+<span id="cb6-193"><a href="#cb6-193" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-194"><a href="#cb6-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-195"><a href="#cb6-195" aria-hidden="true" tabindex="-1"></a>In 2024, **57.7% of college students are female** — 10.02M women vs. 7.34M men. Male enrollment has fallen every year since 2019, declining **9.9% over five years** (8.14M → 7.34M). Female enrollment has held roughly flat before ticking up in 2024.</span>
+<span id="cb6-196"><a href="#cb6-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-197"><a href="#cb6-197" aria-hidden="true" tabindex="-1"></a>The gender gap is mentioned in most enrollment press releases but rarely foregrounded. At 57.7/42.3, it is larger than most education-policy discussions acknowledge.</span>
+<span id="cb6-198"><a href="#cb6-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-199"><a href="#cb6-199" aria-hidden="true" tabindex="-1"></a><span class="fu">## The Black Enrollment Surge</span></span>
+<span id="cb6-200"><a href="#cb6-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-203"><a href="#cb6-203" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb6-204"><a href="#cb6-204" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-black-enrollment</span></span>
+<span id="cb6-205"><a href="#cb6-205" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Black and Hispanic college enrollment trend, 2019–2024"</span></span>
+<span id="cb6-206"><a href="#cb6-206" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-summary: "Demographic enrollment trends"</span></span>
+<span id="cb6-207"><a href="#cb6-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-208"><a href="#cb6-208" aria-hidden="true" tabindex="-1"></a>black <span class="op">=</span> [trend[<span class="bu">str</span>(y)][<span class="st">"black"</span>] <span class="cf">for</span> y <span class="kw">in</span> years]</span>
+<span id="cb6-209"><a href="#cb6-209" aria-hidden="true" tabindex="-1"></a>hisp  <span class="op">=</span> [trend[<span class="bu">str</span>(y)][<span class="st">"hisp"</span>]  <span class="cf">for</span> y <span class="kw">in</span> years]</span>
+<span id="cb6-210"><a href="#cb6-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-211"><a href="#cb6-211" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> go.Figure()</span>
+<span id="cb6-212"><a href="#cb6-212" aria-hidden="true" tabindex="-1"></a>fig.add_trace(go.Scatter(x<span class="op">=</span>years, y<span class="op">=</span>black, name<span class="op">=</span><span class="st">"Black"</span>,</span>
+<span id="cb6-213"><a href="#cb6-213" aria-hidden="true" tabindex="-1"></a>    line<span class="op">=</span><span class="bu">dict</span>(color<span class="op">=</span><span class="st">"#e06c4a"</span>, width<span class="op">=</span><span class="fl">2.5</span>), mode<span class="op">=</span><span class="st">"lines+markers"</span>, marker<span class="op">=</span><span class="bu">dict</span>(size<span class="op">=</span><span class="dv">7</span>)))</span>
+<span id="cb6-214"><a href="#cb6-214" aria-hidden="true" tabindex="-1"></a>fig.add_trace(go.Scatter(x<span class="op">=</span>years, y<span class="op">=</span>hisp, name<span class="op">=</span><span class="st">"Hispanic"</span>,</span>
+<span id="cb6-215"><a href="#cb6-215" aria-hidden="true" tabindex="-1"></a>    line<span class="op">=</span><span class="bu">dict</span>(color<span class="op">=</span><span class="st">"#4ec9a0"</span>, width<span class="op">=</span><span class="fl">2.5</span>), mode<span class="op">=</span><span class="st">"lines+markers"</span>, marker<span class="op">=</span><span class="bu">dict</span>(size<span class="op">=</span><span class="dv">7</span>)))</span>
+<span id="cb6-216"><a href="#cb6-216" aria-hidden="true" tabindex="-1"></a>fig.add_vline(x<span class="op">=</span><span class="dv">2020</span>, line_dash<span class="op">=</span><span class="st">"dot"</span>, line_color<span class="op">=</span><span class="st">"gray"</span>)</span>
+<span id="cb6-217"><a href="#cb6-217" aria-hidden="true" tabindex="-1"></a>fig.update_layout(</span>
+<span id="cb6-218"><a href="#cb6-218" aria-hidden="true" tabindex="-1"></a>    xaxis_title<span class="op">=</span><span class="st">"Year"</span>, yaxis_title<span class="op">=</span><span class="st">"Enrolled (millions)"</span>,</span>
+<span id="cb6-219"><a href="#cb6-219" aria-hidden="true" tabindex="-1"></a>    template<span class="op">=</span><span class="st">"plotly_white"</span>, height<span class="op">=</span><span class="dv">380</span>,</span>
+<span id="cb6-220"><a href="#cb6-220" aria-hidden="true" tabindex="-1"></a>    legend<span class="op">=</span><span class="bu">dict</span>(orientation<span class="op">=</span><span class="st">"h"</span>, y<span class="op">=</span><span class="fl">1.1</span>),</span>
+<span id="cb6-221"><a href="#cb6-221" aria-hidden="true" tabindex="-1"></a>    margin<span class="op">=</span><span class="bu">dict</span>(t<span class="op">=</span><span class="dv">40</span>, b<span class="op">=</span><span class="dv">40</span>)</span>
+<span id="cb6-222"><a href="#cb6-222" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-223"><a href="#cb6-223" aria-hidden="true" tabindex="-1"></a>fig.show()</span>
+<span id="cb6-224"><a href="#cb6-224" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-225"><a href="#cb6-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-226"><a href="#cb6-226" aria-hidden="true" tabindex="-1"></a>Black college enrollment rose **+10.3%** year-over-year (2.56M → 2.82M) — the largest single-year increase of any demographic group in the 2024 data. This is worth flagging as both encouraging and analytically suspect.</span>
+<span id="cb6-227"><a href="#cb6-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-228"><a href="#cb6-228" aria-hidden="true" tabindex="-1"></a>Encouraging: the 2022 figure (2.37M) represented a multi-year low; 2024's 2.82M is now above the pre-COVID 2019 level (2.77M).</span>
+<span id="cb6-229"><a href="#cb6-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-230"><a href="#cb6-230" aria-hidden="true" tabindex="-1"></a>Analytically suspect: a 10.3% single-year shift from a household survey with ~99,000 records is large. The CPS does not publish standard errors through the API. Without replicate-weight-based variance estimates, it is not possible to determine whether this jump is statistically significant or an artifact of sampling variability in a smaller demographic cell.</span>
+<span id="cb6-231"><a href="#cb6-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-232"><a href="#cb6-232" aria-hidden="true" tabindex="-1"></a><span class="fu">## Peer Review: What the Release Gets Right and Wrong</span></span>
+<span id="cb6-233"><a href="#cb6-233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-234"><a href="#cb6-234" aria-hidden="true" tabindex="-1"></a><span class="fu">### Strengths of the methodology</span></span>
+<span id="cb6-235"><a href="#cb6-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-236"><a href="#cb6-236" aria-hidden="true" tabindex="-1"></a>**Continuity.** The CPS October supplement has asked comparable questions since 1947. The trend data exists and is publicly accessible. That is unusual and valuable.</span>
+<span id="cb6-237"><a href="#cb6-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-238"><a href="#cb6-238" aria-hidden="true" tabindex="-1"></a>**Timeliness.** Results are available within roughly six months of the reference week — faster than the ACS.</span>
+<span id="cb6-239"><a href="#cb6-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-240"><a href="#cb6-240" aria-hidden="true" tabindex="-1"></a>**Disaggregation.** The microdata support breakdowns by age, sex, race, Hispanic origin, family income, and school level simultaneously. The API exposes most of this without needing to download the full public-use file.</span>
+<span id="cb6-241"><a href="#cb6-241" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-242"><a href="#cb6-242" aria-hidden="true" tabindex="-1"></a><span class="fu">### Concerns</span></span>
+<span id="cb6-243"><a href="#cb6-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-244"><a href="#cb6-244" aria-hidden="true" tabindex="-1"></a>**1. October reference week is not enrollment.** The survey asks whether a person is currently enrolled in the week of the survey. Students who enrolled in September and dropped by October are missed. Students who enrolled late are missed. Community college students on non-standard calendars are systematically undercounted. A press release that says "X million are enrolled in college" should say "X million reported being enrolled during the week of October 15–21."</span>
+<span id="cb6-245"><a href="#cb6-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-246"><a href="#cb6-246" aria-hidden="true" tabindex="-1"></a>**2. Self-report with no institutional validation.** CPS enrollment figures are never cross-checked against IPEDS (the Integrated Postsecondary Education Data System), which is an institutional headcount census. IPEDS typically shows 1–2M more college students than CPS, partly due to the reference-period issue and partly due to definitional differences (IPEDS counts international students on visas; CPS sampling may undercount them). The press release never mentions this discrepancy.</span>
+<span id="cb6-247"><a href="#cb6-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-248"><a href="#cb6-248" aria-hidden="true" tabindex="-1"></a>**3. No standard errors reported.** The headline figures in a Census enrollment release are point estimates. The CPS uses a complex sample design with stratification and clustering; naively treating the data as simple random sample understates variance by 30–50% for subgroup estimates. The Bureau publishes replicate weights for proper variance estimation, but they are not accessible through the API. A release that says Black college enrollment rose 10.3% without a confidence interval is incomplete.</span>
+<span id="cb6-249"><a href="#cb6-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-250"><a href="#cb6-250" aria-hidden="true" tabindex="-1"></a>**4. Headcounts, not rates.** Reporting enrollment in millions obscures demographic change because the relevant population denominators are shifting. A press release noting that Black college enrollment hit 2.82M should also note the Black 18–24 population size in 2024 vs. 2023. The enrollment *rate* is the more informative statistic.</span>
+<span id="cb6-251"><a href="#cb6-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-252"><a href="#cb6-252" aria-hidden="true" tabindex="-1"></a>**5. Part-time decline understated.** Part-time enrollment fell 2.4%. This likely reflects either (a) financial pressure pushing students to full-time to finish faster or (b) part-time students dropping out entirely. These are opposite interpretations. The press release does not investigate.</span>
+<span id="cb6-253"><a href="#cb6-253" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-254"><a href="#cb6-254" aria-hidden="true" tabindex="-1"></a><span class="fu">### Suggested improvements</span></span>
+<span id="cb6-255"><a href="#cb6-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-256"><a href="#cb6-256" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Issue <span class="pp">|</span> Recommended fix <span class="pp">|</span></span>
+<span id="cb6-257"><a href="#cb6-257" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|</span></span>
+<span id="cb6-258"><a href="#cb6-258" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> No uncertainty quantification <span class="pp">|</span> Publish 90% confidence intervals alongside point estimates; use BRR replicate weights <span class="pp">|</span></span>
+<span id="cb6-259"><a href="#cb6-259" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> No IPEDS cross-check <span class="pp">|</span> Include a one-paragraph reconciliation with IPEDS Fall enrollment each year <span class="pp">|</span></span>
+<span id="cb6-260"><a href="#cb6-260" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Headcounts only <span class="pp">|</span> Add enrollment *rates* (enrolled / civilian noninstitutional population by age group) <span class="pp">|</span></span>
+<span id="cb6-261"><a href="#cb6-261" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> October snapshot framing <span class="pp">|</span> State explicitly that figures reflect enrollment status in one reference week, not full-year enrollment <span class="pp">|</span></span>
+<span id="cb6-262"><a href="#cb6-262" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Gender gap underemphasized <span class="pp">|</span> The 57.7/42.3 female/male split warrants a dedicated section, not a footnote <span class="pp">|</span></span>
+<span id="cb6-263"><a href="#cb6-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-264"><a href="#cb6-264" aria-hidden="true" tabindex="-1"></a><span class="fu">### Potential follow-on projects</span></span>
+<span id="cb6-265"><a href="#cb6-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-266"><a href="#cb6-266" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Enrollment rates by age group**: pull population denominators from ACS 1-year and compute enrollment rates; cleaner than headcounts for trend analysis</span>
+<span id="cb6-267"><a href="#cb6-267" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**CPS vs. IPEDS reconciliation**: compare CPS college headcounts to IPEDS Fall enrollment by year; document and explain the gap</span>
+<span id="cb6-268"><a href="#cb6-268" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Part-time to full-time shift**: disaggregate the full-time/part-time trend by demographic; test whether the shift is concentrated in specific groups</span>
+<span id="cb6-269"><a href="#cb6-269" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Gender gap over time**: the 57.7% female share is the highest on record; build a longer time series and test for structural break around 2010</span>
+<span id="cb6-270"><a href="#cb6-270" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-271"><a href="#cb6-271" aria-hidden="true" tabindex="-1"></a><span class="fu">## Summary</span></span>
+<span id="cb6-272"><a href="#cb6-272" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-273"><a href="#cb6-273" aria-hidden="true" tabindex="-1"></a>The 2024 CPS October School Enrollment data show college enrollment at 17.36M — up 0.7% from 2023 but 4.0% below the 2019 peak. Full-time enrollment grew while part-time declined. Female students now account for 57.7% of college enrollment, with male enrollment down nearly 10% since 2019. Black college enrollment surged 10.3% YoY to 2.82M, recovering above pre-COVID levels, though the absence of standard errors in the API release makes statistical significance uncertain.</span>
+<span id="cb6-274"><a href="#cb6-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-275"><a href="#cb6-275" aria-hidden="true" tabindex="-1"></a>The Bureau's methodology is sound for what it measures, but press release framing omits uncertainty quantification, institutional cross-validation, and enrollment rates. The API is well-structured and reproduces the headline figures; the replicate weights needed for proper variance estimation require the full microdata files.</span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
